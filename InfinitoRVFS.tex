@@ -149,8 +149,8 @@ y_t(\theta)=y(t+\theta), \quad \theta \in \mathbb{R}_{-},
 \end{equation} is the state at time $t\geq0.$ 
 We assume that $G:\mathcal{C}_{\rho} \to \mathbb{R}^{d}$ has \lq\lq exponentially fading\rq\rq memory, i.e. $G$ is well defined for functions which grow exponentially at minus infinity, and it is continuously Fr\'echet differentiable. 
 In particular, there exists a $\rho>0$ such that, by introducing the weight function $$w(\theta):=e^{\rho \theta}, \theta \in \mathbb{R}_-,$$ the natural state-space for \eqref{DDE} is the Banach space $$\mathcal{C}_{\rho}:=\mathcal{C}_{0,\rho}(\mathbb{R}_{-};\mathbb{R}^{d})$$ of all the functions $\psi$ defined on $\mathbb{R}_{-}$ such that $w\psi$ is continuous and vanishes at minus infinity, equipped with the weighted supremum norm 
-$$\textcolor{blue}{\|\psi\|_{\infty,\rho} := } \| w\psi \|_{\infty}=\sup_{\theta \in \mathbb{R}_{-}} w(\theta)|\psi(\theta)|,$$
-\textcolor{blue}{where $|\cdot|$ denote a norm in $\mathbb{R}^d$. }
+$$\|\psi\|_{\infty,\rho} := \| w\psi \|_{\infty}=\sup_{\theta \in \mathbb{R}_{-}} w(\theta)|\psi(\theta)|,$$
+where $|\cdot|$ denotes a norm in $\mathbb{R}^d$.
 
 For the $d$-dimensional nonlinear RE 
 \begin{equation}\label{RE} 
@@ -161,7 +161,7 @@ y(t) = F(y_t),\\
 \end{equation}
 the state $y_t$ is assumed to belong to the space 
 $$L^1_{\rho}:=L^1_{\rho}(\mathbb{R}_{-};\mathbb{R}^{d})$$ of the (equivalence classes of) integrable functions w.r.t. the weight function $w$, equipped with the norm 
-$$\textcolor{blue}{\| \varphi\|_{1,\rho} := } \|w\varphi \|_{1}=\int_{\mathbb{R}_{-}} w(\theta)|\varphi(\theta)| d \theta.$$ 
+$$\| \varphi\|_{1,\rho} := \|w\varphi \|_{1}=\int_{\mathbb{R}_{-}} w(\theta)|\varphi(\theta)| d \theta.$$ 
 Indeed in Section \ref{ssRE} we will propose a more convenient reformulation of REs, so that the state-space will be a subspace of absolutely continuous functions on any bounded subinterval of $\mathbb{R}_{-}$.
 
 In principle other weight functions can be considered \cite{JSW87}, but we restrict to the exponential functions $w,$ for which there exists a well-developed theory \cite{DG12}. 
@@ -173,7 +173,7 @@ to do: citare Staffans \cite{S87,S95} ?
 \vspace{0.2cm}
 We also remark that the Hilbert space $L^2_{\rho}:=L^2_{\rho}(\mathbb{R}_{-};\mathbb{R}^{d})$ of all functions $\varphi$ such that $\|w\varphi \|_{2}:=(\int_{\mathbb{R}_{-}} (w(\theta)|\varphi(\theta)|)^2 d \theta)^{1/2}<+\infty,$ is not the usual state-space chosen for delay equations, also when the delay is bounded \cite{DiekmannBook}. Weighted $L^2$ spaces are usually considered in the context of PDEs in unbounded domain to approximate the solutions by weighted spectral methods or collocation methods using Laguerre polynomials \cite {STW11}.
 
-The asymptotic stability of equilibria as well as how their dynamical properties change under parame-ter variation are among the main goals of the dynamical systems theory. But, in contrast to ordinary differential equations (ODEs), delay equations generate infinite-dimensional dynamical systems, and so the development of suitable numerical methods is needed for stability and bifurcation analysis. A general approach consists in reducing the original infinite-dimensional system to a finite-dimensional one, namely a system of ODEs, while ensuring the accuracy of the predictions. Having a system of ODEs at disposal, one can explore the stability of equilibria as well as perform bifurcation analyses by using the existing tools \textcolor{blue}{for ODEs} such as MatCont and AUTO \cite{matcont,Auto}. To do \cite{CGHD21}
+The asymptotic stability of equilibria as well as how their dynamical properties change under parame-ter variation are among the main goals of the dynamical systems theory. But, in contrast to ordinary differential equations (ODEs), delay equations generate infinite-dimensional dynamical systems, and so the development of suitable numerical methods is needed for stability and bifurcation analysis. A general approach consists in reducing the original infinite-dimensional system to a finite-dimensional one, namely a system of ODEs, while ensuring the accuracy of the predictions. Having a system of ODEs at disposal, one can explore the stability of equilibria as well as perform bifurcation analyses by using the existing tools for ODEs such as MatCont and AUTO \cite{matcont,Auto}. To do \cite{CGHD21}
 \vspace{0.2cm}
 
 To do (FRANCESCA): aggiungere che nelle applicazioni il termine con il ritardo distribuito coinvolge la distribuzione gamma che viene approssimata con la erlang proprio per avere una ODE (citazioni) Avere una tecnica che si puo' applicare anche in questo caso importante. 
@@ -182,7 +182,7 @@ To do (FRANCESCA): aggiungere che nelle applicazioni il termine con il ritardo d
 
 Note that the study of the stability of infinite delay equations can be also carried out for a class of neutral functional differential equations \cite{HKW90,S83,S83_2}.
 
-In the last decade, among various techniques \cite{Boyd}, the PseudoSpectral Discretization (PSD) has been successfully applied either to linearised delay equations for stability analysis of equilibria or to nonlinear ones for numerical bifurcation in various contexts: DDEs, REs and Systems that couple DDEs/REs with bounded discrete and distributed delays, PDEs with nonlocal boundary conditions \cite{BMV08,BDMV13,BMV14,BDGSV16}. 
+In the last decade, among various techniques \cite{Boyd}, the PseudoSpectral Discretization (PSD) has been successfully applied either to linearised delay equations for stability analysis of equilibria or to nonlinear ones for numerical bifurcation in various contexts: DDEs, REs and systems that couple DDEs/REs with bounded discrete and distributed delays, PDEs with nonlocal boundary conditions \cite{BMV08,BDMV13,BMV14,BDGSV16}. 
 
 \vspace{0.2cm} completare citazioni \vspace{0.2cm}
 
@@ -233,9 +233,17 @@ Note that each space $w L^p_{\rho}$ is isomorphic to $L^p$. In the following, we
 
 \subsection{DDEs}\label{ssDDE}
 
-%We define the Banach space $\mathcal{C}_{\rho}:=\mathcal{C}_{\rho}(\mathbb{R}_{-};\mathbb{R}^{d})$ of all the functions $\psi$ defined on $\mathbb{R}_{-}$ such that $w\psi$ is continuous and vanishes at minus infinity equipped with the norm $\| w\psi \|_{\infty}=\sup_{\theta \in \mathbb{R}_{-}} w(\theta)|\psi(\theta)|.$ \vspace{0.2cm}
-
-Given $\psi \in \mathcal{C}_{\rho},$ there exists a unique continuous function $y:\mathbb{R} \to \mathbb{R}^{d}$ which satisfies \eqref{DDE} and the initial condition $y_0= \psi.$
+We consider the nonlinear DDE \eqref{DDE}. Given $\psi \in \mathcal{C}_{\rho},$ there exists a unique continuous function $y:\mathbb{R} \to \mathbb{R}^{d}$ which satisfies \eqref{DDE} and the initial condition $y_0= \psi.$ Note that the function $y_t$ is continuous for all $t\geq 0.$ 
+%\begin{equation}\label{DDE}
+%\begin{array}{l}
+%y'(t) = G(y_t),\\
+%\end{array}
+%\quad t\geq0,
+%\end{equation}
+%with infinite delay, i.e. the state or history at time $t \geq 0$ is $$y_t(\theta)=y(t+\theta), \quad \theta \in \mathbb{R}_{-},$$ 
+%and we assume that $G:\mathcal{C}_{\rho} \to \mathbb{R}^{d}$ has \lq\lq exponentially fading\rq\rq memory, i.e. $G$ is well defined for functions which grow exponentially at minus infinity, and it is continuously Fr\'echet differentiable. 
+%\vspace{0.2cm}
+%aggiungere Definizione di Staffans
 
 Hereafter, to ease the notations and when no confusion arises, we simply write $w\psi$ the multiplication by $w,$ i.e.
 \begin{align}
@@ -249,12 +257,13 @@ equipped with the norm $\|(w\alpha;w\psi)\|_X=\max\{|\alpha|, \|w\psi\|_{\infty}
 j\psi=(w\psi(0);w\psi), \quad \psi \in \mathcal{C}_{\rho}.
 \end{equation}
 
-If we interpret $\alpha \in \mathbb{R}^d$ as a constant function in $L_\rho^\infty,$ we have that $x=(w\alpha;w\psi)$ is a $\mathbb{R}^{\bar{d}}$-valued function with $\bar{d}=2d,$ and $X \subset  wL_\rho^\infty(\mathbb{R}_{-};\mathbb{R}^{\bar{d}}).$  Moreover we remark that, for all $\psi \in \mathcal{C}_{\rho},$ the function $x=(w\alpha;w\psi)\in w\mathcal{C}_{\rho}(\mathbb{R}_{-};\mathbb{R}^{\bar{d}}) \subset X.$ 
+If we interpret $\alpha \in \mathbb{R}^d$ as a constant function in $L_\rho^\infty,$ we have that $x=(w\alpha;w\psi)$ is a $\mathbb{R}^{\bar{d}}$-valued function with $\bar{d}=2d,$ and $x=(w\alpha;w\psi)\in w\mathcal{C}_{\rho}(\mathbb{R}_{-};\mathbb{R}^{\bar{d}}) \subset X,$ for all $\psi \in \mathcal{C}_{\rho}.$
+%$X \subset  wL_\rho^\infty(\mathbb{R}_{-};\mathbb{R}^{\bar{d}}).$  Moreover we remark that, for all $\psi \in \mathcal{C}_{\rho},$ the function $x=(w\alpha;w\psi)\in w\mathcal{C}_{\rho}(\mathbb{R}_{-};\mathbb{R}^{\bar{d}}) \subset X.$ 
 %equipped with the norm $\|(w\psi_1;w\psi_2)\|_X=\max\{\|w\psi_1\|_{\infty}, \|w\psi_2\|_{\infty}\}.$ 
 
 Keeping in mind the \lq \lq shift\rq \rq, the \lq \lq extension \rq \rq and the \lq \lq weight multiplication\rq \rq, we derive the semilinear ADE for $u(t)=jy_t,$ namely 
 \begin{equation}\label{ADDE}
-u'(t)=\mathcal{A}_0^{DDE}u(t)+\mathcal{F}^{DDE}(u(t)), \ t >0,
+u'(t)=\mathcal{A}_0^{DDE}u(t)+\mathcal{F}^{DDE}(u(t)), \ t \geq 0,
 \end{equation}
 where the linear unbounded operator $\mathcal{A}_0^{DDE}: D(\mathcal{A}_0^{DDE}) \subset Y \to X$ is
 \begin{equation}\label{A0DDE}
@@ -305,7 +314,7 @@ The above program can be carried out for REs \eqref{RE}
 %\quad t>0,
 %\end{equation}
 %where now the state $y_t$ is assumed to belong to the space $L^1_{\rho}$ and $F:L^1_{\rho} \to \mathbb{R}^{d}$ is a 
-where $F:L^1_{\rho} \to \mathbb{R}^{d}$ is a continuously Fr\'echet differentiable map. From the continuity of $F$ we get that the function $y$ in \eqref{RE} is continuous for $t >0.$ Let $\varphi \in L^1_{\rho}$ be given. Then there exists a unique function $y \in L^1_{\text{loc}}(\mathbb{R};\mathbb{R}^{d})$ which satisfies \eqref{RE} and the initial condition $y_0=\varphi.$  
+where $F:L^1_{\rho} \to \mathbb{R}^{d}$ is a continuously Fr\'echet differentiable map (globally Lipschitz continuous). From the continuity of $F$ we get that the function $y$ in \eqref{RE} is continuous for $t >0.$ Let $\varphi \in L^1_{\rho}$ be given. Then there exists a unique function $y \in L^1_{\text{loc}}(\mathbb{R};\mathbb{R}^{d})$ which satisfies \eqref{RE} and the initial condition $y_0=\varphi$ \cite[Theorem 2.2]{DG12}.
 
 To derive the abstract equation, we consider $X=wL^1_{\rho},$ and we take the embedding $j:L^1_{\rho} \to X$ given by
 \begin{equation}\label{jRE}
@@ -318,7 +327,7 @@ where $V: L^1_{\rho} \to L^1_{\rho}$ is the integral operator
 We have that $$\|j(\varphi)\|_X \leq \int\limits_{-\infty}^0 e^{\rho \theta} \int\limits_\theta^0 |\varphi(s)| ds \ d\theta =\int\limits_{-\infty}^0  \int\limits_{-\infty}^s e^{\rho \theta} d\theta \ |\varphi(s)| ds \leq \frac{\|w\varphi\|_1}{\rho},
 %&=\int_{-\infty}^0  \int_{-\infty}^s e^{\rho \theta} d\theta |\varphi(s)| ds\leq \frac{\|w\varphi\|_X}{\rho}\\
 $$
-and $Y=jL^1_{\rho}=\{w\varphi \in X \  | \ \varphi=V\varphi', w\varphi' \in X \}$ is the subspace $AC_0:=AC_0(\mathbb{R}_{-};\mathbb{R}^{d})$ of all absolutely continuous functions $w\varphi$ in $X$ such that $w\varphi(0)=0.$ Note that, for $w\varphi \in Y$, $j^{-1}w\varphi=\varphi'$ corresponds to differentiation.
+and $Y=jL^1_{\rho}=\{w\varphi \in X \  | \ \varphi=V\varphi', w\varphi' \in X \}$ is the subspace $AC_0:=AC_0(\mathbb{R}_{-};\mathbb{R}^{d})$ of all absolutely continuous functions $w\varphi$ in $X$ in any closed subset of $\mathbb{R}$ such that $w\varphi(0)=0.$ Note that, for $w\varphi \in Y$, $j^{-1}w\varphi=\varphi'$ corresponds to differentiation.
 
 Now we can formally derive the following ADE for $u(t)=jy_t,$ namely 
 
@@ -348,8 +357,14 @@ gives the linearised equation
 \begin{equation}\label{LARE}
 u'(t)=\mathcal{A}_0^{RE}u(t)+\mathcal{L}^{RE}u(t), \ t >0,
 \end{equation}
-with $\mathcal{L}^{RE}$ a finite-rank operator. By Riesz' representation theorem we get $$DF(\bar{\varphi})\varphi=\int\limits_0^{+\infty} k(x)\varphi(-x) dx,$$ with $k \in L_\rho^{\infty}(\mathbb{R}_+,\mathbb{R}^{d \times d}).$ Moreover the choice of $\rho$ also ensures that $k \in L_\rho^{1}(\mathbb{R}_+,\mathbb{R}^{d \times d}).$
+with $\mathcal{L}^{RE}$ a finite-rank operator. By Riesz' representation theorem we get $$DF(\bar{\varphi})\varphi=\int\limits_0^{+\infty} k(x)\varphi(-x) dx,$$ with $k \in L_\rho^{\infty}(\mathbb{R}_+,\mathbb{R}^{d \times d}).$ Moreover the choice of $\rho$ also ensures that $k \in L_\rho^{1}(\mathbb{R}_+,\mathbb{R}^{d \times d})$
+\cite[Corollary 3.2.]{DG12}.
 
+to do: dire invece che si prende $\rho_1 < \rho$ con $\bar{\varphi} \in L_{\rho_1}^{1}$ e poi si cercano gliautovalori maggio ri di $-\rho_1 $?
+
+%\cite[Corollary 3.2.]{DG12}
+%Let $0< \rho_1< \rho$.Let $F: L_\rho^{1} \to \mathbb{R}^{d}$ be Fr\'echet differentiable at $\varphi \in L_\rho^{1} \subset L_\rho^1$ with Fr\'echet derivative $DF(\varphi)$ represented by the kernel $k \in  L_\rho^{\infty}$ . Then $F$ is Fr\'echet differentiable at $\varphi $ as a function from $L_{\rho_1}^{1}$.  Its Fr\'echet derivative is represented by $k$ and $k$ belongs not only (by definition) to $L_{\rho_1}^{\infty}$ but also to $L_{\rho_1}^{1}$.
+%
 
 
 \vspace{0.5cm}
@@ -361,7 +376,7 @@ So far we have worked with real-valued functions and operators on real Banach sp
 
 %It is not worthless to recall that abstract differential equations have been derived for equations with finite delay $\tau>0$ by taking with $\rho=0$ and $X$ as suitable Banach space of $\mathbb{R}^{\bar{d}}$-valued functions defined on the delay interval $[-\tau, 0]$ \cite{DiekmannBook,sunstar,twin,DSV20,SDV20}. But there is an important theoretical difference to emphasise. When the delay is finite, $\mathcal{A}_0$ is the infinitesimal generator of the shift semigroup $\{T_0(t)\}_{t \geq 0},$ which has finite dimensional range for $t >\tau$ for DDEs, and it is even nilpotent for REs. In both cases, $T_0$ is eventually compact. Since $\mathcal{F}$ has finite dimensional range, the perturbed semigroup $\{T(t)\}_{t \geq 0}$ for the linearised equation is eventually compact. As a consequence, the spectrum of the infinitesimal generator $\mathcal{A}$ of $T$ is a point spectrum, the growth bound of $T$ equals the spectral bound of $\mathcal{A}$, which is the supremum of the real part of the eigenvalues of $\mathcal{A}$. Therefore the stability or instability of equilibria are determined by the position of the eigenvalues of $\mathcal{A}$ in the complex plane, and the principle of linearised stability holds. When the delay is infinite, the eventual compactness is lost and we cannot deduce the growth bound from the spectral bound. 
 
-to do: scrivere in breve questa parte. It is worth to recall that abstract differential equations have \textcolor{blue}{also} been derived for equations with finite delay $\tau>0$  \cite{DiekmannBook,sunstar,twin,DSV20,SDV20}. But there is an important theoretical difference to emphasise. When the delay is finite, $\mathcal{A}_0$ is the infinitesimal generator of the shift semigroup $\{T_0(t)\}_{t \geq 0},$ which has finite dimensional range for $t >\tau$ for DDEs, and it is even nilpotent for REs. In both cases, $T_0$ is eventually compact. Since $\mathcal{F}$ has finite dimensional range, the perturbed semigroup $\{T(t)\}_{t \geq 0}$ for the linearised equation is eventually compact. As a consequence, the spectrum of the infinitesimal generator $\mathcal{A}$ of $T$ is a point spectrum, the growth bound of $T$ equals the spectral bound of $\mathcal{A}$, which is the supremum of the real part of the eigenvalues of $\mathcal{A}$. Therefore the stability or instability of equilibria are determined by the position of the eigenvalues of $\mathcal{A}$ in the complex plane, and the principle of linearised stability holds. When the delay is infinite, the eventual compactness is lost and we cannot deduce the growth bound from the spectral bound. 
+to do: scrivere in breve questa parte. It is worth to recall that abstract differential equations have also been derived for equations with finite delay $\tau>0$  \cite{DiekmannBook,sunstar,twin,DSV20,SDV20}. But there is an important theoretical difference to emphasise. When the delay is finite, $\mathcal{A}_0$ is the infinitesimal generator of the shift semigroup $\{T_0(t)\}_{t \geq 0},$ which has finite dimensional range for $t >\tau$ for DDEs, and it is even nilpotent for REs. In both cases, $T_0$ is eventually compact. Since $\mathcal{F}$ has finite dimensional range, the perturbed semigroup $\{T(t)\}_{t \geq 0}$ for the linearised equation is eventually compact. As a consequence, the spectrum of the infinitesimal generator $\mathcal{A}$ of $T$ is a point spectrum, the growth bound of $T$ equals the spectral bound of $\mathcal{A}$, which is the supremum of the real part of the eigenvalues of $\mathcal{A}$. Therefore the stability or instability of equilibria are determined by the position of the eigenvalues of $\mathcal{A}$ in the complex plane, and the principle of linearised stability holds. When the delay is infinite, the eventual compactness is lost and we cannot deduce the growth bound from the spectral bound. 
 
 Nevertheless the principle of linearised stability has been proved also for DDEs, REs as well as for systems that couple REs and DDEs with infinite delay by using an equivalent abstract integral equation of the variation-of-constants type \cite[Theorem 3.15,Theorem 4.7]{DG12}. Moreover, the stability of the equilibria can be analysed by studying the position of the part of the eigenvalues of $\mathcal{A}:=\mathcal{A}_0+\mathcal{L}$ in the right half-plane $\mathbb{C}_\rho:=\{ \lambda \in \mathbb{C} \ | \  \Re \lambda  > -\rho\}$ \cite{DG12}. 
 
@@ -451,7 +466,9 @@ and $\mathcal{F}^{PDE}: X \to X$ is
 \end{equation}.
 \end{example}
 
-Let $X$ be an infinite-dimensional Banach space of $\mathbb{C}^{\bar{d}}$-valued functions defined on $\mathbb{R}_{-}$ equipped with a non-weighted $p$-norm, $1 \leq p \leq +\infty,$ denoted by $\|\cdot\|_X.$
+Let $X$ be an infinite-dimensional Banach space of $\mathbb{C}^{\bar{d}}$-valued functions defined on $\mathbb{R}_{-}$ equipped with a non-weighted $p$-norm, $1 \leq p \leq +\infty,$ denoted by $\|\cdot\|_X.$ In other words $X$ is a subspace of $L^p(\mathbb{R}_-;\mathbb{C}^{\bar{d}}).$ 
+%If $p=\infty$ we define $L^\infty(\mathbb{R}_-;\mathbb{C}^{\bar{d}})$ the set of continuous functions on $\mathbb{R}_-$ such that $\lim_{\theta \to -\infty} x=0$ with $\sup_{\theta \in \mathbb{R}_-} |x(\theta)| <+\infty.$
+
 We consider a semilinear ADE of the form
 \begin{equation}\label{ADE}
 u'(t)=\mathcal{A}_0 u(t)+\mathcal{F}(u(t)), \ t \geq 0,
@@ -467,7 +484,11 @@ D(\mathcal{A}_0)=\{ x \in  X \ | \ \mathcal{A}_0x \in X \text{ and } x(0)=\mathc
 \end{equation}
 where $\mathcal{B}: X \to \mathbb{R}^{\bar{d}}$ is a linear and bounded operator characterising the domain condition, and $\mathcal{F}: X \to X$ is a sufficiently smooth nonlinear operator. 
 
-We consider \eqref{ADE} where $u(t) \in D(\mathcal{A}_0)$ and $u'(t) \in X$ for $t \geq 0.$ The functions $x \in D(\mathcal{A}_0)$ \textcolor{blue}{are at least continuous [to check]} and so we introduce a subspace $Y \subset X$ of continuous functions, such that $D(\mathcal{A}_0) \subset Y$. This also motivates the choice to use the PSD approach, which requires that point evaluation is well defined. 
+We consider \eqref{ADE} where $u(t) \in D(\mathcal{A}_0)$ and $u'(t) \in X$ for $t \geq 0.$ Since every function $x \in D(\mathcal{A}_0)$ belongs to the Sobolev space $W^{p,1}(\mathbb{R}_-;\mathbb{C}^{\bar{d}}),$ it admits one (and only one) continuous representative \cite{Bre11}. In order to simplify the notation we also write $x$ for its continuous representative. Moreover $x \in  W^{p,1}(\mathbb{R}_-;\mathbb{C}^{\bar{d}}),$ is H\"{o}lder continuous, i.e. 
+$$ |x(\theta_2)-x(\theta_1)| \leq \|x'\|_X |\theta_2-\theta_1|^{1/q}, \quad \theta_2 <\theta_1 \leq 0, \ \frac{1}{p}+ \frac{1}{q}=1,$$
+for $1 <p <+\infty,$ it is Lipschitz continuous, i.e. 
+$$ |x(\theta_2)-x(\theta_1)| \leq \|x'\|_X |\theta_2-\theta_1|}, \quad \theta_2 <\theta_1 \leq 0,$$
+for $p=\infty,$ and it is absolute continuous for $p=1$. So we introduce a subspace $Y \subset X$ of (the equivalence classes of) continuous functions, such that $D(\mathcal{A}_0) \subset Y$. This also motivates the choice to use the PSD approach, which requires that point evaluation is well defined. 
 
 %describing \lq \lq extension \rq\rq component. 
 
@@ -513,14 +534,15 @@ where $\mathcal{L}:=D\mathcal{F}(\bar{u}).$
 }
 
 \bigskip
-In order to proceed in the spirit of a unified abstract setting, we assume that we can learn about the asymptotic behaviour of the zero-solution of \eqref{LADE} from the spectral analysis of the linear unbounded operator $\mathcal{A}_0+\mathcal{L},$ namely we assume that
-
 \bas\label{PLS}(the principle of linearised stability)
 \bi
 \item the local stability of equilibria of the semilinear equation \eqref{ADE} can be inferred from the stability of zero-solution for the linearised equation \eqref{LADE};
 \item the position of the eigenvalues of $\mathcal{A}_0+\mathcal{L}$ on the right-half plane $\mathbb{C}_\rho$ determines the stability property of the zero solution of \eqref{LADE}.
 \ei
 \eas
+
+We point out that, even if the abstract formulation provides a common framework to represent equations with finite ($\rho=0$) and infinite ($\rho>0$) delay, the principle of linearized stability for the latter can not be obtained from \ref{PLS} by 
+setting $\rho=0$ \cite{DiekmannBook}.
 
 %Now the crucial question is if we can learn about the asymptotic behaviour of the zero-solution of \eqref{LADE} from the spectral analysis of the linear unbounded operator $\mathcal{A}_0+\mathcal{L}$. In order to proceed in the spirit of a unified abstract setting, it is worth asking how the infinite delay equations fit in this frame and how the known results in \cite{DG12} can be reformulated.
 
@@ -600,7 +622,7 @@ For \eqref{LDDE} we have that $\beta=\mathcal{B}(w\alpha;w\psi)=(\alpha;\alpha),
 For \eqref{LRE} we have that  $\beta=\mathcal{B}(w\varphi)=0,$ and easy computations lead to the characteristic equation \eqref{CERE}.
 
 
-\section{The PSD approach}\label{SS_APSD}
+\section{The PSD approach}\label{S_APSD}
 
 To derive a system of ODEs starting from the ADE, we have to transfer the functions $x \in X$ and the infinite-dimensional operators $\mathcal{A}_{0}, \mathcal{F}, \mathcal{L}$ into their discrete counterparts. % Before summarising the basic idea, we fix some notations. Hereafter we consider column vectors and we use the convention of writing them as rows, but separating each column block-vector elements with semicolons. 
 
@@ -639,23 +661,23 @@ x_{N}:=w\sum\limits_{i=1}^N \ell_{i}\frac{X_i}{W_i}.
 %%text{span}\{c_i\bar{e_j} \in X, i=1,\dots,N, j=1,\dots,\bar{d}\}
 %Then we have that  
 %$$
-%P_{N}(X_{1};\dots;X_{N})=\sum\limits_{i=1}^N c_iX_i \in C_N.
+%\mathcal{P}_{N}(X_{1};\dots;X_{N})=\sum\limits_{i=1}^N c_iX_i \in C_N.
 %$$
 %Note that $\mathcal{I}_N$ is the interpolation operator on $X.$ 
 %
 %
 %
-%%we propose to employ the weighted polynomial interpolation on \eqref{nodes}. Let $w\Pi_N^\bar{d}$ be the space of $\mathbb{C}^\bar{d}$-valued weighted polynomials of degree less than or equal to $N,$ and denote $W_i=w(\theta_{i}), i=1,\dots,N.$ By selecting the $N$ Lagrange polynomials $\ell_{i}$ associated to the nodes \eqref{nodes}, we define $$P_N(X_1;\dots;X_N)=x_{N},$$
+%%we propose to employ the weighted polynomial interpolation on \eqref{nodes}. Let $w\Pi_N^\bar{d}$ be the space of $\mathbb{C}^\bar{d}$-valued weighted polynomials of degree less than or equal to $N,$ and denote $W_i=w(\theta_{i}), i=1,\dots,N.$ By selecting the $N$ Lagrange polynomials $\ell_{i}$ associated to the nodes \eqref{nodes}, we define $$\mathcal{P}_N(X_1;\dots;X_N)=x_{N},$$
 %%where $x_{N} \in w\Pi_{N-1}^\bar{d}$ is the interpolant of the form
 %%\begin{equation}\label{xN}
 %%x_{N}:=w\sum\limits_{i=1}^N \ell_{i}\frac{X_i}{W_i}.
 %%\end{equation}
 %%The operator $\mathcal{I}_N$ is the interpolating operator.
-%%We focus on the PSD approach where $R_Nx$ is the block-vector of the values of $x$ at a selected choice of $N$ distinct nodes in $\mathbb{C}_{-}.$ By choosing $N$ cardinal functions defining a Chebyshev system of dimension $N$ (\cite[Definition 1.3.1]{MM08}), we have that $\mathcal{I}_N=P_NR_N$ is the interpolating operator (Section \ref{S_PSD}). For the spectral approach, $R_Nx$ are the coefficients of the series expansion of $x$ w.r.t. a orthogonal system and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}.
-%%By choosing $N$ an appropriate set of linear independent continuous functions $c_{i}:\mathbb{C}_{-} \to \mathbb{C}, i=1,\dots,N$ we complement the operator $R_N$ with the {\it prolongation operator} defined as $$P_{N}(X_{1};\dots;X_{N})=\sum\limits_{i=1}^N c_iX_i \in \text{span}\{c_i\bar{e_j}, i=1,\dots,N, j=1,\dots,\bar{d}\}.$$
+%%We focus on the PSD approach where $\mathcal{R}_Nx$ is the block-vector of the values of $x$ at a selected choice of $N$ distinct nodes in $\mathbb{C}_{-}.$ By choosing $N$ cardinal functions defining a Chebyshev system of dimension $N$ (\cite[Definition 1.3.1]{MM08}), we have that $\mathcal{I}_N=\mathcal{P}_N\mathcal{R}_N$ is the interpolating operator (Section \ref{S_PSD}). For the spectral approach, $R_Nx$ are the coefficients of the series expansion of $x$ w.r.t. a orthogonal system and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}.
+%%By choosing $N$ an appropriate set of linear independent continuous functions $c_{i}:\mathbb{C}_{-} \to \mathbb{C}, i=1,\dots,N$ we complement the operator $\mathcal{R}_N$ with the {\it prolongation operator} defined as $$\mathcal{P}_{N}(X_{1};\dots;X_{N})=\sum\limits_{i=1}^N c_iX_i \in \text{span}\{c_i\bar{e_j}, i=1,\dots,N, j=1,\dots,\bar{d}\}.$$
 % 
 %
-%%In the PSD approach $R_Nx$ is the block-vector of the values of $x$ at a selected choice of $N$ distinct nodes in $\mathbb{C}_{-}.$ By choosing $N$ cardinal functions defining a Chebyshev system of dimension $N$ (\cite[Definition 1.3.1]{MM08}), we have that $\mathcal{I}_N=P_NR_N$ is the interpolating operator (Section \ref{S_PSD}). Instead, for instance, for the spectral approach $R_Nx$ are the coefficients of the series expansion of $x$ w.r.t. the orthogonal system $\{c_{i}\}_{i\geq1},$ and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}.
+%%In the PSD approach $\mathcal{R}_Nx$ is the block-vector of the values of $x$ at a selected choice of $N$ distinct nodes in $\mathbb{C}_{-}.$ By choosing $N$ cardinal functions defining a Chebyshev system of dimension $N$ (\cite[Definition 1.3.1]{MM08}), we have that $\mathcal{I}_N=\mathcal{P}_N\mathcal{R}_N$ is the interpolating operator (Section \ref{S_PSD}). Instead, for instance, for the spectral approach $R_Nx$ are the coefficients of the series expansion of $x$ w.r.t. the orthogonal system $\{c_{i}\}_{i\geq1},$ and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}.
 %
 %Since we consider $u(t) \in D(\mathcal{A}_{0}) \subset Y,  t\geq 0,$ we have to take into account the domain condition in \eqref{DA0}. To this aim we add $\theta_{0}=0$ to the set $\Theta_N,$ i.e. 
 %\begin{equation}\label{nodes0}
@@ -680,7 +702,7 @@ x_{N}:=w\sum\limits_{i=1}^N \ell_{i}\frac{X_i}{W_i}.
 %
 %\hline
 
-\textcolor{blue}{To map into the domain $D(\mathcal{A}_0)$, we define a prolongation operator with domain condition that accounts for the domain condition \eqref{DA0}}. To this aim we add the node $\theta_{0}=0$ to the set $\Theta_N,$ i.e. 
+To map into the domain $D(\mathcal{A}_0)$, we define a prolongation operator with domain condition that accounts for the domain condition \eqref{DA0}. To this aim we add the node $\theta_{0}=0$ to the set $\Theta_N,$ i.e. 
 \begin{equation}\label{nodes0}
 \Theta_{N,0}=\Theta_{N} \cup \{\theta_0=0\},
 \end{equation}
@@ -699,8 +721,8 @@ Finally by combining all the ingredients, from the discretization of \eqref{ADE}
 \begin{equation}\label{ODE}
 U'(t)=\mathcal{A}_{N,0} U(t)+\mathcal{F}_N(U(t)), \ t \geq 0,
 \end{equation}
-\textcolor{blue}{for $U(t) \in \mathbb{R}^{N\bar{d}}$}, 
-while the discretization of the linear ADE \eqref{LADE} leads to the linear ODE
+for $U(t) \in \mathbb{C}^{N\bar{d}},$ while the discretization of the linear ADE \eqref{LADE} leads to the linear ODE
+
 \begin{equation}\label{LODE}
 U'(t)=\mathcal{A}_{N,0} U(t) +\mathcal{L}_NU(t), \ t \geq 0.
 \end{equation}
@@ -909,7 +931,7 @@ The analysis in Theorem \ref{Th0} can be extended to approximate the resolvent o
 
 $(H2)^\prime \ \|(\mathcal{I}_{N}-I_X)z \|_X \to 0,  \ z \in X, N \to +\infty,$
 
-and the bounds \eqref{Ebound1} and \eqref{Ebound2} still hold but with $r_N(\theta;\lambda,\beta,z):=(\mathcal{I}_{N}-I_X)x^\prime(\theta;\lambda,\beta,z), \ \theta \in \mathbb{C}_{-}$ \cite{DSV20}, \textcolor{blue}{where $x(\theta;\lambda,\beta,z)$ is the solution of the collocation equation \eqref{eigIVP} where $\xi^T\gamma$ is replaced by $z$}.
+and the bounds \eqref{Ebound1} and \eqref{Ebound2} still hold but with $r_N(\theta;\lambda,\beta,z):=(\mathcal{I}_{N}-I_X)x^\prime(\theta;\lambda,\beta,z), \ \theta \in \mathbb{C}_{-},$ where $x(\theta;\lambda,\beta,z)$ is the solution of the collocation equation \eqref{eigIVP} where $\xi^T\gamma$ is replaced by $z$ \cite{DSV20}.
 \end{remark}
 
 Now we are ready to derive the characteristic equation associated with $\mathcal{A}_{N,0} +\mathcal{L}_N$ \cite[Proposition 5.2]{BMV14}.
@@ -971,12 +993,17 @@ $$
 and Theorem \ref{Th2} is replaced by the following one.
 
 \begin{theorem}\label{Th3}
-Let $\rho=\rho_1+\epsilon,\ \epsilon>0,$ and $\lambda \in \mathbb{C}, \ \Re\lambda > -\rho_1$ a root of the equation \eqref{CE} with multiplicity $m$. Let $B$ be an open ball in $\mathbb{C}_{\rho_1}$ of center $\lambda$ such that $\lambda$ is the unique root of \eqref{CE} in $B$. Under the assumptions of Theorem \ref{Th0} and $\|\widetilde{\mathcal{L}}\|_X$ uniformly bounded, there exists $N_1:=N_1(B)$ such that, for $N\geq N_1,$ equation \eqref{CCEN} has $m$ roots $\lambda_{i,N}, i=1,\dots,m$ (taking into account multiplicities) and 
+Let $\rho=\rho_1+\epsilon,\ \epsilon>0,$ and $\lambda \in \mathbb{C}, \ \Re\lambda > -\rho_1$ a root of the equation \eqref{CE} with multiplicity $m$. Let $B$ be an open ball in $\mathbb{C}_{\rho_1}$ of center $\lambda$ such that $\lambda$ is the unique root of \eqref{CE} in $B$. Under the assumptions of Theorem \ref{Th0}, there exists $N_1:=N_1(B)$ such that, for $N\geq N_1,$ equation \eqref{CCEN} has $m$ roots $\lambda_{i,N}, i=1,\dots,m$ (taking into account multiplicities) and 
 \bd
 \max_{i=1,\dots,m}| \lambda-\lambda_{i,N}| \leq \left( C_1(B) R_N(B)+C_2(B) \widetilde{Q}(B)\right)^{1/m}
 \ed
-with $C_1(B),C_2(B)$ constants independent of $N$. Then, if $\widetilde{Q}(B) \to 0, \ N \to \infty,$ the convergence follows.
+with $C_1(B),C_2(B)$ constants independent of $N$.
 \end{theorem}
+
+
+\textcolor{blue}{to do: Per le equazioni con ritardo useremo FQ che dipendono da $N$, i.e. we consider $\widetilde{\mathcal{L}}_N$ so 
+we require $\|\widetilde{\mathcal{L}}_N \|_X$ uniformly bounded.}
+
 
 \begin{remark}\label{r3}
 Note that, when the approximation $\widetilde{\mathcal{F}}$ of the nonlinear operator $\mathcal{F}$ is introduced, by replacing  $\mathcal{F}_N:= \mathcal{R}_N\widetilde{\mathcal{F}}\mathcal{P}_{N,0}$ in \eqref{AFLN}, the expression of the nonlinear ODE \eqref{ODE} is the same.
@@ -987,13 +1014,15 @@ Note that, when the approximation $\widetilde{\mathcal{F}}$ of the nonlinear ope
  
 \section{Weighted interpolation on $\mathbb{R}_{-}$}\label{S_Int}
 
-To get the convergence of the interpolation process, which is required for the convergence of the eigenvalues, the choices of nodes and of the function spaces are crucial.  But the results in the literature cannot be directly applied \textcolor{blue}{in the classical weighted spaces}. In what follows we present novel convergence results. 
+To get the convergence of the interpolation process, which underlines (=is the basis of) the convergence of the eigenvalues, the choices of nodes and of the function spaces are crucial.  But the results in the literature for the classical weighted Sobolev spaces cannot be directly applied. In what follows we present novel convergence results. 
 
 
 to do completare \cite{GLZ06,XG02,WGW09}
 
 
-For both DDEs and REs we need to construct a convergent interpolation process through appropriate selection of $\Theta_N$ and of the subspace $X' \subset X$ (see Remark \ref{r1}). We will first consider the DDEs in the infinity norm, then we will extend the results to REs too. Finally we will study the order of convergence of $r_N(\cdot;\lambda,\beta,\gamma)$ w.r.t. $N$ (see Theorem \ref{Th2}).
+For both DDEs and REs we need to construct a convergent interpolation process through appropriate selections of $\Theta_N$ and of the subspace $X' \subset X$ (see Remark \ref{r1}). 
+
+{\cob We will first consider the DDEs in the infinity norm, then we extend the results to REs too.} Finally we will study the order of convergence of $r_N(\cdot;\lambda,\beta,\gamma)$ w.r.t. $N$ (see Theorem \ref{Th2}).
 
 Without loss of generality, we take $d=1$. By standard analysis we have the following bound for the interpolation error
 \bd
@@ -1045,7 +1074,7 @@ with $C$ a positive constant independent of $N$ and $\psi$ \cite[Theorem 4.3.8]{
 %\ed
 %with $C$ a positive constant independent of $N$ and $\psi$ \cite[Theorem 4.3.9]{MM08}. 
 
-Define the function $s(\theta):=\sqrt{-\theta}, \theta \in \mathbb{R}_{-}$. Let $\psi=V\psi' \in \mathcal{C}_{\rho},$ with $\| s w \psi' \|_\infty <+\infty.$ If  \eqref{onodes} holds, then from \cite[Theorem 4.3.9]{MM08} we get the following interpolation error estimate
+Define the function $s(\theta):=\sqrt{-\theta}, \theta \in \mathbb{R}_{-}$. Let $\psi=V\psi' \in \mathcal{C}_{\rho},$ with $\| s w \psi' \|_\infty <+\infty.$ For the choice \eqref{onodes}, then from \cite[Theorem 4.3.9]{MM08} we get the following interpolation error estimate
 
 \bd
 %\| w(\psi - \psi_{N})\|_\infty \leq C \frac{\log(N-1)}{(N-1)^{1/2}} (\|wV\psi'\|_\infty+\frac{1}{(2\rho)^{1/2}}\| s w \psi' \|_\infty), 
@@ -1055,25 +1084,25 @@ with $C$ a positive constant independent of $N$ and $\psi$, which can not be dir
 
 Having in mind to approximate the functions $\psi_\lambda:=e^{\lambda \cdot}\alpha$ for $\Re \lambda >-\rho_1,$ we proceed as follows. Let $\theta_\epsilon:=-\frac{1}{2\epsilon}$ be the point where the function $s(\theta)e^{\epsilon \theta}, \theta \in \mathbb{R}_{-},$ reaches its maximum value, and define the positive constant $C_\epsilon:=s(\theta_\epsilon)=\frac{1}{\sqrt{2\epsilon}}.$ 
 
-We introduce the subspace $\widetilde{\mathcal{C}}$ of $\mathcal{C}_{\rho}$ given by
+We introduce the subspace $\mathcal{C}_{\rho,\epsilon}$ of $\mathcal{C}_{\rho}$ given by
 \bd
-%\widetilde{\mathcal{C}}=\{\psi \in \mathcal{C}_{\rho_1} \ | \  \exists \ \widetilde{\theta} \geq \theta_\epsilon \text{ such that }  w s |\psi|  \text{ is increasing in } (-\infty,\widetilde{\theta}) \}.
-%\widetilde{\mathcal{C}}=\{\psi \in \mathcal{C}_{\rho_1} \ | \ s w |\psi|  \text{ is increasing in } (-\infty,\theta_\epsilon]  \},
-\widetilde{\mathcal{C}}=\{\psi \in \mathcal{C}_{\rho} \ | \ s w |\psi|  \text{ is increasing in } (-\infty,\theta_\epsilon]  \}.
+%\mathcal{C}_{\rho,\epsilon}=\{\psi \in \mathcal{C}_{\rho_1} \ | \  \exists \ \widetilde{\theta} \geq \theta_\epsilon \text{ such that }  w s |\psi|  \text{ is increasing in } (-\infty,\widetilde{\theta}) \}.
+%\mathcal{C}_{\rho,\epsilon}=\{\psi \in \mathcal{C}_{\rho_1} \ | \ s w |\psi|  \text{ is increasing in } (-\infty,\theta_\epsilon]  \},
+\mathcal{C}_{\rho,\epsilon}=\{\psi \in \mathcal{C}_{\rho} \ | \ s w |\psi|  \text{ is increasing in } (-\infty,\theta_\epsilon]  \}.
 \ed
-%and we take $\widetilde{\mathcal{C}} \subset \mathcal{C}_{\rho}$ as the closure of $\mathcal{C}_{\rho_1}^\epsilon,$ i.e.
+%and we take $\mathcal{C}_{\rho,\epsilon} \subset \mathcal{C}_{\rho}$ as the closure of $\mathcal{C}_{\rho_1}^\epsilon,$ i.e.
 %\bd
-% \widetilde{\mathcal{C}}:=\overline{\mathcal{C}_{\rho_1}^\epsilon}.
+% \mathcal{C}_{\rho,\epsilon}:=\overline{\mathcal{C}_{\rho_1}^\epsilon}.
 %\ed
 \begin{lemma}\label{L0}
-$\widetilde{\mathcal{C}}$ is a closed subspace of $\mathcal{C}_{\rho}$. Moreover for all $\psi \in \widetilde{\mathcal{C}}$ we have that
+$\mathcal{C}_{\rho,\epsilon}$ is a closed subspace of $\mathcal{C}_{\rho}$. Moreover for all $\psi \in \mathcal{C}_{\rho,\epsilon}$ we have that
 $$
  \| s w \psi  \|_\infty \leq  C_\epsilon \| w \psi \|_\infty.
 $$
 \end{lemma}
 \begin{proof}
 %Sia V uno spazio normato. Un sottoinsieme C di V è chiuso se e solo se gode della proprietà seguente: se {vn} è una successione di punti di C convergente in V , allora anche il limite di {vn} appartiene a C.
-Let $\{\psi_n\}_{n\geq0}$ be a sequence in $\widetilde{\mathcal{C}}$ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$. We have that $\psi \in \mathcal{C}_{\rho}$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty.$ Choose $\theta_1 < \theta_2 \leq \theta_\epsilon.$ We have that
+Let $\{\psi_n\}_{n\geq0}$ be a sequence in $\mathcal{C}_{\rho,\epsilon}$ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$. We have that $\psi \in \mathcal{C}_{\rho}$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty.$ Choose $\theta_1 < \theta_2 \leq \theta_\epsilon.$ We have that
 $$
 s(\theta_1) w(\theta_1) |\psi_n(\theta_1)| \leq s(\theta_2) w(\theta_2) |\psi_n(\theta_2)| \leq s(\theta_\epsilon) w(\theta_\epsilon) |\psi_n(\theta_\epsilon)|
 $$
@@ -1083,9 +1112,9 @@ $$
 \text{ and }\\
 \lim_{n \to \infty}s(\theta_2) w(\theta_2) |\psi_n(\theta_2)|=s(\theta_2) w(\theta_2) |\psi(\theta_2)|, \\
 $$
-and, as a conseguence,  $s(\theta_1) w(\theta_1) |\psi(\theta_1)| \leq s(\theta_2) w(\theta_2) |\psi(\theta_2)|$. Then $\psi \in \widetilde{\mathcal{C}}.$ 
+and, as a consequence,  $s(\theta_1) w(\theta_1) |\psi(\theta_1)| \leq s(\theta_2) w(\theta_2) |\psi(\theta_2)|$.  Then $\psi \in \mathcal{C}_{\rho,\epsilon}$ and $\mathcal{C}_{\rho,\epsilon}$ is closed. 
 
-Let $\psi \in \widetilde{\mathcal{C}}$ 
+Let $\psi \in \mathcal{C}_{\rho,\epsilon}$ 
 %%and denote $w_1(\theta)=e^{\rho_1 \theta}, \theta \in \mathbb{R}_-.$ Since $\| w \psi \|_\infty \leq  \| w_1 \psi \|_\infty$ and  $w \psi$ vanishes at $-\infty$, we have that $\psi \in  \mathcal{C}_{\rho}.$ 
 The function $s w |\psi|$ is increasing in $(-\infty,\theta_\epsilon],$ so %and $\widetilde{\theta} \geq \theta_\epsilon$ 
 \bd
@@ -1096,7 +1125,7 @@ s(\theta) w(\theta)  |\psi (\theta)| &\leq  s(\theta_\epsilon) w(\theta_\epsilon
 \ed
 and $\| s w\psi\|_\infty \leq C_\epsilon \| w\psi\|_\infty. $ 
 %
-%Now we consider $\psi \in \widetilde{\mathcal{C}}$. Then there exists a sequence $\{\psi_n\}_{n\geq0},$ such that $\psi_n \in\mathcal{C}_{\rho_1}^\epsilon,$ for all $n\geq 0, $ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$.  We have that  $\| s w\psi_n\|_\infty \leq C_\epsilon \| w\psi_n \|_\infty,$ for all $n \geq 0,$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty$. From $\| s w \psi_n\|_\infty \to \| s w \psi \|_\infty$ as $n \to +\infty$ (?) we get the thesis.
+%Now we consider $\psi \in \mathcal{C}_{\rho,\epsilon}$. Then there exists a sequence $\{\psi_n\}_{n\geq0},$ such that $\psi_n \in\mathcal{C}_{\rho_1}^\epsilon,$ for all $n\geq 0, $ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$.  We have that  $\| s w\psi_n\|_\infty \leq C_\epsilon \| w\psi_n \|_\infty,$ for all $n \geq 0,$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty$. From $\| s w \psi_n\|_\infty \to \| s w \psi \|_\infty$ as $n \to +\infty$ (?) we get the thesis.
 %% le funzioni \psi_n sono in \mathcal{C}_{\rho_1} e quindi abbiamo che sw \psi_n= se^{\epsilon \theta}w_1\psi_n va a zero a -\infinito e sono limitate e quindi f_n=i s\psi_n sono in \mathcal{C}_{\rho} da cui vorrei dedurre che sono convergenti a s\psi. Se dimostro che sono di Cauchy ho concluso.
 \end{proof}
 
@@ -1106,12 +1135,12 @@ and $\| s w\psi\|_\infty \leq C_\epsilon \| w\psi\|_\infty. $
 %%\mathcal{C}_{\rho_1}^\epsilon=\{\psi \in \mathcal{C}_{0,\rho_1} \ | \  \exists \ \widetilde{\theta} \geq \theta_\epsilon \text{ such that }  w s |\psi|  \text{ is increasing in } (-\infty,\widetilde{\theta}) \}.
 %\mathcal{C}_{\rho_1}^\epsilon=\{\psi \in \mathcal{C}_{\rho_1} \ | \ s w |\psi|  \text{ is increasing in } (-\infty,\theta_\epsilon]  \},
 %\ed
-%and we take $\widetilde{\mathcal{C}} \subset \mathcal{C}_{\rho}$ as the closure of $\mathcal{C}_{\rho_1}^\epsilon,$ i.e.
+%and we take $\mathcal{C}_{\rho,\epsilon} \subset \mathcal{C}_{\rho}$ as the closure of $\mathcal{C}_{\rho_1}^\epsilon,$ i.e.
 %\bd
-% \widetilde{\mathcal{C}}:=\overline{\mathcal{C}_{\rho_1}^\epsilon}.
+% \mathcal{C}_{\rho,\epsilon}:=\overline{\mathcal{C}_{\rho_1}^\epsilon}.
 %\ed
 %\begin{lemma}\label{L0}
-%For all $\psi \in \widetilde{\mathcal{C}},$ we have that
+%For all $\psi \in \mathcal{C}_{\rho,\epsilon},$ we have that
 %$$
 % \| s w \psi  \|_\infty \leq  C_\epsilon \| w \psi \|_\infty.
 %$$
@@ -1128,12 +1157,12 @@ and $\| s w\psi\|_\infty \leq C_\epsilon \| w\psi\|_\infty. $
 %\ed
 %and $\| s w\psi\|_\infty \leq C_\epsilon \| w\psi\|_\infty. $ 
 %
-%Now we consider $\psi \in \widetilde{\mathcal{C}}$. Then there exists a sequence $\{\psi_n\}_{n\geq0},$ such that $\psi_n \in\mathcal{C}_{\rho_1}^\epsilon,$ for all $n\geq 0, $ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$.  We have that  $\| s w\psi_n\|_\infty \leq C_\epsilon \| w\psi_n \|_\infty,$ for all $n \geq 0,$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty$. From $\| s w \psi_n\|_\infty \to \| s w \psi \|_\infty$ as $n \to +\infty$ (?) we get the thesis.
+%Now we consider $\psi \in \mathcal{C}_{\rho,\epsilon}$. Then there exists a sequence $\{\psi_n\}_{n\geq0},$ such that $\psi_n \in\mathcal{C}_{\rho_1}^\epsilon,$ for all $n\geq 0, $ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$.  We have that  $\| s w\psi_n\|_\infty \leq C_\epsilon \| w\psi_n \|_\infty,$ for all $n \geq 0,$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty$. From $\| s w \psi_n\|_\infty \to \| s w \psi \|_\infty$ as $n \to +\infty$ (?) we get the thesis.
 %% le funzioni \psi_n sono in \mathcal{C}_{\rho_1} e quindi abbiamo che sw \psi_n= se^{\epsilon \theta}w_1\psi_n va a zero a -\infinito e sono limitate e quindi f_n=i s\psi_n sono in \mathcal{C}_{\rho} da cui vorrei dedurre che sono convergenti a s\psi. Se dimostro che sono di Cauchy ho concluso.
 %\end{proof}
 
 \begin{lemma}\label{L1}
-Let $\psi \in \widetilde{\mathcal{C}}$ and $\nu \in (0,1).$ Then there exists $\widetilde{N}:=\widetilde{N}(\nu,\epsilon) \in \mathbb{N},$ such that
+Let $\psi \in \mathcal{C}_{\rho,\epsilon}$ and $\nu \in (0,1).$ Then there exists $\widetilde{N}:=\widetilde{N}(\nu,\epsilon) \in \mathbb{N},$ such that
 $$
 \frac{ \| s w \psi  \|_\infty}{\sqrt{N}} \leq  \frac{\| w \psi \|_\infty} {\sqrt{N}^{\nu}}, \ \text{ for all } N \geq \widetilde{N}.
 $$
@@ -1158,10 +1187,10 @@ for all $N \geq \widetilde{N},$ and the proof is complete.
 %\end{proof}
 
 \begin{theorem}\label{Th4}
-Let $\psi=V\psi' \in \widetilde{\mathcal{C}},$ with $\psi' \in \widetilde{\mathcal{C}}.$ By selecting the nodes \eqref{onodes},  
+Let $\psi=V\psi' \in \mathcal{C}_{\rho,\epsilon},$ with $\psi' \in \mathcal{C}_{\rho,\epsilon},$ and let $\nu \in (0,1).$ By selecting the nodes \eqref{onodes},  
 we get the following error estimate for the weighted interpolation error for sufficiently large $N$
 \bd
-\| w(\psi - \psi_{N})\|_\infty \leq C \frac{\log(N-1)}{(N-1)^{\nu/2}} \| w \psi' \|_\infty, 
+\| w(\psi - \psi_{N})\|_\infty \leq C \frac{\log(N-2)}{(N-1)^{\nu/2}} \| w \psi' \|_\infty, 
 \ed
 with $C$ a positive constant independent of $N$ and $\psi.$
 \end{theorem}
@@ -1170,15 +1199,16 @@ The results is a straightforward consequence of the Favard-type inequality
 \be\label{F}
 E_{N-1}(V\psi')_{w,\infty}  \leq  \frac{C}{\sqrt{N-1}}E_{N-2}(\psi')_{sw,\infty} \leq   \frac{C \| sw \psi' \|_\infty}{\sqrt{N-1}},
 \ee 
-combined with the \lq\lq optimal\rq\rq choice of the nodes \eqref{onodes} and Lemma \ref{L1}.
+combined with the choice of the nodes \eqref{onodes} and Lemma \ref{L1}.
 \end{proof}
 
-For DDEs the convergence of the collocation solution to the true solution follows by choosing $X': =\{ (w\alpha;w\psi ) \ | w\psi \in w\widetilde{\mathcal{C}} \}$ and $Y^\prime_0=\{ (0;w\psi ) \ | \ \psi=V\psi'  \in \widetilde{\mathcal{C}}, \psi' \in \widetilde{\mathcal{C}} \},$ while for REs, we consider $X'=\{ w\varphi  \ | w\psi \in w\widetilde{\mathcal{C}} \}$ equipped with infinity norm and $Y^\prime_0=\{ w\varphi \ | \ \varphi=V\varphi'  \in \widetilde{\mathcal{C}}, \varphi' \in \widetilde{\mathcal{C}} \}.$ 
+For DDEs the convergence of the collocation solution to the true solution follows by choosing $X': =\{ (w\alpha;w\psi ) \ | w\psi \in w\mathcal{C}_{\rho,\epsilon} \}$ and $Y^\prime_0=\{ (0;w\psi ) \ | \ \psi=V\psi'  \in \mathcal{C}_{\rho,\epsilon}, \psi' \in \mathcal{C}_{\rho,\epsilon} \},$ while for REs, we consider $X'=\{ w\varphi  \ | w\psi \in w\mathcal{C}_{\rho,\epsilon} \}$ equipped with infinity norm and $Y^\prime_0=\{ w\varphi \ | \ \varphi=V\varphi'  \in \mathcal{C}_{\rho,\epsilon}, \varphi' \in \mathcal{C}_{\rho,\epsilon} \}.$ 
 
 %By using the error bounds in weighted $\infty-$norm, we derive the bounds in weighted$1-$ norm, and so we get the convergence for REs too.
+to do truncated interpolation
 
-\subsection{On the convergence of $r_N$}
-First of all we remark that $\psi_\lambda \in \widetilde{\mathcal{C}}$ for $\Re \lambda >-\rho_1.$ Moreover we easily get
+\subsection{On the interpolation error of the eigenfunctions}
+First of all we remark that $\psi_\lambda \in \mathcal{C}_{\rho,\epsilon}$ for $\Re \lambda >-\rho_1.$ Moreover we easily get
 $$
 \| s^k w \psi_\lambda^{(k)} \|_\infty \leq |\lambda|^k \| s^k w \psi_\lambda \|_\infty \leq |\lambda|^k s(\frac{k}{2 e^k \epsilon})|\alpha | \leq |\lambda|^k C_\epsilon^k s(k)^k , \ k \geq 1,
 $$
@@ -1200,20 +1230,17 @@ $$
 %$$
 and by choosing the nodes \eqref{onodes}, we get for all $k >1,$ 
 $$
-\| (\lambda+\rho)w(\psi_\lambda -\psi_{\lambda,N})\|_\infty \leq C |\lambda+\rho| \log(N-1) \left(\frac{C_\epsilon |\lambda| \sqrt{k}}{\sqrt{N-1}}\right)^k |\alpha |,
+\| (\lambda+\rho)w(\psi_\lambda -\psi_{\lambda,N})\|_\infty \leq C |\lambda+\rho| \log(N-2) \left(\frac{C_\epsilon |\lambda| \sqrt{k}}{\sqrt{N-1}}\right)^k |\alpha |,
 $$
-\cite[Theorem 4.3.9]{MM08}.  %\leq |\lambda+\rho|\cdot|\lambda|^k \frac{C \log(N-1)}{(\sqrt{N-1})^k} s(\frac{k}{2 e^k \epsilon})|\alpha| 
+\cite[Theorem 4.3.9]{MM08}.  
 
 As in Lemma \ref{L1}, we have that for all $k >1$ and sufficiently large $N,$ the interpolation error is $O(N^{-k\nu/2})$, for $\nu \in (0,1).$ So it decreases faster than $N^{-\nu k/2}$ for any $k,$ i. e. it has infinite order \cite[pag.25]{Boyd}. But it is important to underline that the convergence rate depends on the $|\lambda|$ and $\epsilon$: the convergence is faster for $\lambda \in \mathbb{C}_\rho$ with smaller modulus and real part on the far right of $-\rho_1.$  
 
 TO DO Completare con oss RE e DDE /RE
 
-%Let $B$ be a closed ball in $\mathbb{C}_{\rho}$ of center $\lambda$ and radius $r$ as in Theorem \ref{Th}. By defining $R(B):= r \cdot \ \sqrt{2 \cdot e \cdot \epsilon} \sup_{\lambda \in B} |\lambda+\rho|,$ we have that $\|r_N\|_\infty \approx O(N^{-k/2})$ for $N > k R(B).$ 
-
 \section{Weighted quadrature rules on $\mathbb{R}_-$}
 
-to do: dire che per le infinite delay equations serve trattare con integrali. 
-{\it Compared with the case of integrals defined on bounded intervals, only a few quadrature rules have been proposed for the numerical integration of functions defined on the real semiaxis. The Gauss-Laguerre rule is the classical and most known approach.}
+Infinite delay equations often involve integrals on real semiaxis that need to be approximated. The Gauss--Laguerre rules are the classical and most known approaches in the literature \cite{MM08}.
 
 For easy implementation, when computing integrals on $\mathbb{R}_-,$ we use the scaled Gauss-Laguerre (GL) formula associated with the zeros $\tau_{i,0}, i=1,\dots,n,$ or the scaled Gauss-Radau-Laguerre (GRL) formula associated with $\tau_{0,1}=0, \tau_{i,1}, i=1,\dots,n. $ In this way, there is no need to interpolate the vector when computing the state values at the quadrature nodes, as the values are already included in the discretized state.
 
@@ -1230,20 +1257,16 @@ For all $f \in \mathcal{C}_\rho$ we have that
 \end{equation}
 \end{proposition}
 \begin{proof}
-For $P \in \Pi_{2n-1},$ we have
+Since the GL quadrature formula has degree of exactness $2n-1,$ for $P \in \Pi_{2n-1},$ we have
 \ba{ll}
-|q_{n,0}(f)| &\leq \int\limits_{-\infty}^0 e^{2\rho \theta} |(f-P)(\theta)| d\theta + \sum\limits_{i=1}^n  (b_{i,0}e^{-\rho \tau_{i,0}})|(f-P)(\theta_{i+1})| e^{\rho \tau_{i,0}}\\
+|q_{n,0}(f)| &\leq \int\limits_{-\infty}^0 e^{2\rho \theta} |(f-P)(\theta)| d\theta + \sum\limits_{i=1}^n  (b_{i,0}e^{-\rho \tau_{i,0}})|(f-P)(\tau_{i,0})| e^{\rho \tau_{i,0}}\\
 &\leq \|w(f-P)\|_\infty (\int\limits_{-\infty}^0 e^{\rho \theta} d\theta + \sum\limits_{i=1}^n  b_{i,0}e^{-\rho\tau_{i,0}}).\\
 \ea
 
-Since $b_{i,0} \sim (\tau_{i,0}-\tau_{i+1,0})e^{2\rho \tau_{i,0}}, i=1,\dots,n,$ with $\tau_{i,0}=0$ \cite[formula (2.3.60)]{MM08}, and 
+From $b_{i,0} \sim (\tau_{i,0}-\tau_{i+1,0})e^{2\rho \tau_{i,0}}, i=1,\dots,n,$ with $\tau_{0,0}=0$ \cite[formula (2.3.60)]{MM08}, we have 
 $$\sum\limits_{i=1}^n  (\tau_{i,0}-\tau_{i+1,0}) e^{\rho  \tau_{i,0}} <\sum\limits_{i=1}^n \int\limits_{\tau_{i+1,0}}^{\tau_{i,0}}  e^{\rho \theta} d\theta < \int\limits_{-\infty}^0 e^{\rho \theta} d\theta.$$
 Taking the polynomial $P$ of best approximation w.r.t. $\|\cdot\|_{\infty,\rho}$ norm, we get \eqref{qN}.
 \end{proof}
-
-%
-
-
 
 To our best knowledge, there are no analogous results for GRL formulas. Here we extend the results in Proposition \ref{FQG} to the error $q_{n,1}$ of the scaled GRL  quadrature formula, i.e.
 $$
@@ -1254,30 +1277,46 @@ where $\tau_{0,1}=0,$ $\tau_{i,1}, i=1,\dots,n,$ are the nodes in \eqref{taunode
 \begin{proposition}\label{FQGR}
 For all $f \in \mathcal{C}_\rho,$ we have
 \begin{equation}\label{qN1}
-|q_{n,1}(f)| \leq \frac{3}{\rho} E_{2n}(f)_{\infty,\rho}.
+|q_{n,1}(f)| \leq \frac{9}{4\rho} E_{2n}(f)_{\infty,\rho}.
 \end{equation}
 \end{proposition}
 \begin{proof}
-Let $m_{i}, i=0,\dots,n,$ be the $n$-degree Lagrange polynomials associated to $\tau_{i,1} i=0,\dots,n.$ 
-%of the $n$-degree polynomial which is orthogonal w.r.t. the weight function $\theta e^{2\rho \theta}, \theta \in \mathbb{R}_-.$ 
-From \cite[Section 2.3.5]{MM08} we have that 
-$$b_{0,1}=\int\limits_{-\infty}^0 e^{2\rho \theta} m_{0}^2(\theta) d\theta=\frac{1}{\rho},$$
-while from \cite[formula 2.3.60]{MM08}
-$$b_{i,1}=\frac{1}{\tau_{i,1}}\int\limits_{-\infty}^0 \theta e^{2\rho \theta}m_{i,1}(\theta) d\theta \sim (\tau_{i-2}^1-\tau_{i,1}) e^{2\rho \tau_{i,1}}, 2=1,\dots,n,$$
-where $m_{i,1}, i=1,\dots,n$ are the $(n-1)$-degree Lagrange polynomials associated to $\tau_{i,1}, i=1,\dots,n.$ 
-For each $P \in \Pi_{2n},$ we have
+The GRL quadrature formula is exact for polynomials of degree $\leq 2n.$ From \cite{G00} we get that the boundary weight  $b_{0,1}$ is given by
+$$b_{0,1}=\frac{1}{2\rho(n+1)}, $$
+
+%can be obtained by putting $f$ the $n-$ degree scaled generalized Laguerre polynomial $\Phi_n^1$ w.r.t. the weight $\theta e^{2\rho \theta}$, $$b_{0,1}\Phi_n^1(0)=\int\limits_{-\infty}^0 e^{2\rho \theta} \Phi_n^1(\theta) d\theta=\frac{1}{\rho}.$$
+while the interior weights are given by
+$$b_{i,1}=\frac{1}{\tau_{i,1}}\int\limits_{-\infty}^0 \theta e^{2\rho \theta}m_{i,1}(\theta) d\theta \sim (\tau_{i-1,1}-\tau_{i,1}) e^{2\rho \tau_{i,1}},\  i=1,\dots,n,$$
+where $m_{i,1}, i=1,\dots,n$ are the $(n-1)$-degree Lagrange polynomials associated to $\tau_{i,1}, i=1,\ldots,n$ \cite[formula 2.3.60]{MM08}. For each $P \in \Pi_{2n},$ we have
 $$\ba{ll}
 |q_{n,1}(f)| &\leq \int\limits_{-\infty}^0 e^{2\rho \theta} |(f-P)(\theta)| d\theta +\sum\limits_{i=0}^n (b_{i,1}e^{-\rho \tau_{i,1}})|(f-P)(\tau_{i,1})|e^{\rho \tau_{i,1}}\\
-&<\|w(f-P)\|_\infty \left(\frac{2}{\rho} + \sum\limits_{i=1}^n  \int\limits_{\tau_{i,1}}^{\tau_{i-1,1}} e^{-\rho \theta} d\theta\right)\\
-&< \|w(f-P)\|_\infty \left(\frac{2}{\rho}+ \int\limits_{-\infty}^0 e^{\rho \theta} d\theta \right)=\frac{3}{\rho} \ \|w(f-P)\|_\infty.\\
+&<\|w(f-P)\|_\infty \left(\frac{1}{\rho} + \frac{1}{2\rho(n+1)}+\sum\limits_{i=1}^n  \int\limits_{\tau_{i,1}}^{\tau_{i-1,1}} e^{-\rho \theta} d\theta\right)\\
+&< \|w(f-P)\|_\infty \left(\frac{1}{\rho}+ \frac{1}{4\rho}+ \int\limits_{-\infty}^0 e^{\rho \theta} d\theta \right)=\frac{9}{4\rho} \ \|w(f-P)\|_\infty.\\
 \ea
 $$
 Taking the infimum over all $P \in \Pi_{2n},$ we get \eqref{qN1}.
+ %Let $m_{i}, i=0,\dots,n,$ be the $n$-degree Lagrange polynomials associated to $\tau_{i,1}, i=0,\dots,n.$ 
+%of the $n$-degree polynomial which is orthogonal w.r.t. the weight function $\theta e^{2\rho \theta}, \theta \in \mathbb{R}_-.$ 
+%
+%
+%From \cite[Section 2.3.5]{MM08} we have that 
+%$$b_{0,1}\Phi_n^1(0)=\int\limits_{-\infty}^0 e^{2\rho \theta} m_{0}^2(\theta) d\theta=\frac{1}{2\rho9n+1)},$$
+%while from \cite[formula 2.3.60]{MM08}
+%$$b_{i,1}=\frac{1}{\tau_{i,1}}\int\limits_{-\infty}^0 \theta e^{2\rho \theta}m_{i,1}(\theta) d\theta \sim (\tau_{i-2}^1-\tau_{i,1}) e^{2\rho \tau_{i,1}},\  i=1,\dots,n,$$
+%where $m_{i,1}, i=1,\dots,n$ are the $(n-1)$-degree Lagrange polynomials associated to $\tau_{i,1}, i=1,\ldots,n.$ 
+%For each $P \in \Pi_{2n},$ we have
+%$$\ba{ll}
+%|q_{n,1}(f)| &\leq \int\limits_{-\infty}^0 e^{2\rho \theta} |(f-P)(\theta)| d\theta +\sum\limits_{i=0}^n (b_{i,1}e^{-\rho \tau_{i,1}})|(f-P)(\tau_{i,1})|e^{\rho \tau_{i,1}}\\
+%&<\|w(f-P)\|_\infty \left(\frac{1}{\rho} + \frac{1}{2\rho(n+1)}+\sum\limits_{i=1}^n \int\limits_{\tau_{i,1}}^{\tau_{i-1,1}} e^{-\rho \theta} d\theta\right)\\
+%&< \|w(f-P)\|_\infty \left(\frac{1}{2\rho}+ \int\limits_{-\infty}^0 e^{\rho \theta} d\theta \right)=\frac{3}{\rho} \ \|w(f-P)\|_\infty.\\
+%\ea
+%$$
+%Taking the infimum over all $P \in \Pi_{2n},$ we get \eqref{qN1}.
 \end{proof}
- 
+
 Under the more stringent assumption $\int_0^{+\infty} |k(t)| e^{2 \rho t} \diff t <+\infty,$ we can approximate the integral $\int_0^{+\infty} k(s) \psi(-s) \diff s=\int_{-\infty}^0 k(-\theta) \psi(\theta) \diff \theta$ by the GL quadrature formula or GRL quadrature formula for all $\psi \in \mathcal{C}_\rho,$ and, since $f(\theta)= e^{-2 \rho \theta}k(-\theta) \psi(\theta) \in \mathcal{C}_\rho$, we can apply Propositions \ref{FQG} and \ref{FQGR} to estimate the quadrature errors of both formulas.  
 
-In particular when $k(t)=e^{-2 \rho t}$ we have that $f=\psi.$ According to Theorem \ref{Th3}, the spectral convergence of the quadrature error $Q_N(B)$ occurs since we have to consider the eigenfunctions $\psi_\lambda$ \cite{MM082}. So the spectral convergence of the eigenvalues is preserved. In general we have to consider sufficiently smooth functions $k$. 
+In particular when $k(t)=e^{-2 \rho t}$ we have that $f=\psi.$ According to Theorem \ref{Th3}, the spectral convergence of the quadrature error $Q(B)$ occurs since we have to consider the eigenfunctions $\psi_\lambda$ \cite{MM082}. So the spectral convergence of the eigenvalues is preserved. In general we have to consider sufficiently smooth functions $k$. 
 
 It is important to recall that for the weighted best polynomial approximation we have that 
 $$ f \in \mathcal{C}_\rho \iff \lim_{n \to \infty} E_{n}(f)_{\infty,\rho}=0,$$
@@ -1300,8 +1339,7 @@ to do: dire qualcosa su RE e DDE/RE.
 
 
 The Laguerre nodes are computed using the publicly available MATLAB suites from [Weideman and Reddy] and [Gautschi]. 
-In particular, the nodes associated with $\delta = 0$, which correspond to the zeros of the Laguerre polynomial of degree $N$, are computed using the code \verb!lagroots.m! by [Weideman and Reddy]; the nodes associated with $\delta = 1$, which correspond to the extrema of the Laguerre polynomial of degree $N$ with the additional node $\theta=0$, are computed using the function \verb!radau_laguerre.m! from [Gautschi], which also returns the corresponding weights $\omega_j$ for the Laguerre--Gauss--Radau quadrature formula, i.e. \textcolor{blue}{(check notation formula)},
-$$ \int_0^\infty e^{-s} \varphi(s) \diff s \approx \sum_{j=0}^N \omega_j \varphi(x_j). $$ 
+In particular, the nodes associated with $\delta = 0$, which correspond to the zeros of the Laguerre polynomial of degree $N$, are computed using the code \verb!lagroots.m! by [Weideman and Reddy]; the nodes associated with $\delta = 1$, which correspond to the extrema of the Laguerre polynomial of degree $N$ with the additional node $\theta=0$, are computed using the function \verb!radau_laguerre.m! from [Gautschi], which also returns the corresponding weights $\omega_j$ for the Laguerre--Gauss--Radau quadrature formula.
 Explicit expressions for the weights Gauss-Radau quadrature are given in \cite{G00}.
 
 For the analysis, it is important to understand how the spectrum of the differentiation matrix is located in the complex plane, especially since, for collocation meshes in the infinite interval, limited theoretical results are known [check literature]. 
@@ -1581,7 +1619,10 @@ What $\rho$ to take??
 
 \section{Conclusions}\label{S_Conclusions}
 
-to do: In the future we will investigate the PSD approached based on truncated interpolation, which also enter in the framework of subsection \ref{AA_APSD}. Recent results show that  GL quadrature formulas have the same accuracy of the classical GL quadrature formula using only a fraction of their nodes, which in our case reads as follows 
+\bi
+\item For the spectral approach $\mathcal{R}_Nx$ are the coefficients of the series expansion of $x$ w.r.t. an orthogonal system and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}.
+
+\item to do: In the future we will investigate the PSD approached based on truncated interpolation, which also enter in the framework of subsection \ref{AA_APSD}. Recent results show that  GL quadrature formulas have the same accuracy of the classical GL quadrature formula using only a fraction of their nodes, which in our case reads as follows 
 
 $$
 \int_{-\infty}^0 e^{2\rho \theta} f(\theta) d \theta \approx \sum\limits_{i=1}^{k-1} b_i f(\tau_{i,0}),
@@ -1589,6 +1630,7 @@ $$
 with $\tau_{k,0}:=\max \{\tau_{i,0} \leq -4nr/2\rho \}$ and $0<r<1$ arbitrarily chosen \cite{JMN21,MM00,MM08,MM082}. 
 
 Queste tecniche sono molto interessanti  perch\`e comportano un risparmio computazionale to do: estensione ad altri modelli PDE.
+\ei
 
 \bigskip
 In a spectral approach $\mathcal{R}_Nx$ is defined as the vector of coefficients of the series expansion of $x$ w.r.t. an orthogonal system and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}. Theorem \ref{Th0} remains true, but...
@@ -1614,8 +1656,10 @@ gncs
 
 \bibitem{BDLS16} Breda, D., Diekmann, O., Liessi, D., and Scarabel, F.: Numerical bifurcation analysis of a class of nonlinear renewal equations. Electronic Journal of Qualitative Theory of Differential Equations (2016)
 
+\bibitem{Bre11} Brezis, H.: Functional analysis, Sobolev spaces and partial differential equations Vol. 2, No. 3. New York: Springer  (2011).
+
 \bibitem{CGHD21} A. Cassidy, T., Gillich, P., Humphries, A.R., and van Dorp, C.H., Numerical methods and hypoexponential approximationsfor Gamma distributed delay differential equations, submitted, arXiv: 2104.03873
-\bibitem{CGLW16} Chekroun, M. D., Ghil, M., Liu, H., and Wang, S.:  Low-dimensional Galerkin approximations of nonlinear delay differential equations. DCDS 36(8), pp.4133-4177 (2016)
+\bibitem{CGLW16} Chekroun, M. D., Ghil, M., Liu, H., and Wang, S.:  Low-dimensional Galerkin approximations of nonlinear delay differential equations. DCDS 36(8), pp. 4133-4177 (2016)
 
 \bibitem{DG12}
   Diekmann, Odo and Gyllenberg, Mats,
