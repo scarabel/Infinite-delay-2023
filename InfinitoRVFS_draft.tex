@@ -832,37 +832,77 @@ For RE we have that $X_i=(W_i\Phi_i), i=1,\dots,N,$ $\beta=0,$ and so
 
 \subsection{Convergence analysis of the eigenvalues}\label{SS_LADE}
 
-Via PSD, the eigenvalue problem for the infinite-dimensional operator $\mathcal{A}_0+\mathcal{L}$ is therefore turned into the eigenvalue problem for the finite-dimensional operator $\mathcal{A}_{N,0}+\mathcal{L}_N.$ The key question is how accurate these approximations are. To this aim, we carry out the same program as in \cite{BMV14}, which is based on the convergence of the collocation solution of \eqref{eigIVP}. For this reason we prove this fundamental result, while we simply recall the derivation of the characteristic equation for $\mathcal{A}_{N,0}+\mathcal{L}_N$ and the final convergence theorem. 
-% while the converge rate takes also into account the multiplicity of $\lambda$ as zero of \eqref{Alambda}.
+The eigenvalue problem for the infinite-dimensional operator $\mathcal{A}_0+\mathcal{L}$ is turned into the eigenvalue problem for the finite-dimensional operator $\mathcal{A}_{N,0}+\mathcal{L}_N.$ The key question is how accurate are these approximations. To this aim, we carry out the same program in \cite{BMV14}, which is based on the convergence of the collocation solution of \eqref{eigIVP}. For this reason we focus on this fundamental result, while we simply recall the derivation of the characteristic equation for $\mathcal{A}_{N,0}+\mathcal{L}_N$ and the final convergence theorem. 
+Indeed we study the collocation approximation for a more general problem, which includes as particular cases, not only \eqref{eigIVP} but also the equation $(\mathcal{A}_0-\lambda)x=z,$ whose solution allows to define the resolvent operator of $\mathcal{A}_0,$ i.e. $(\mathcal{A}_0-\lambda)^{-1}.$
 
-%We conclude the subsection by deriving the discrete version of \eqref{Alambda} and \eqref{CE}.  
-% which gives rise to an approximated operator $\mathcal{L}_M.$Let $(X_1;\dots; X_N)$ be such that
-%\begin{displaymath}
-%(\mathcal{A}_{N,0}+\mathcal{L}_N)(X_1;\dots, X_N)=\lambda (X_1;\dots;X_N)}.
-%\end{displaymath}
-%Then  by defining $x_{N,0}(\cdot;\lambda,\beta,\gamma)$ as the collocation solution $x_{N,0} \in \text{span}\{c_{i,0}\bar{e}_j, i=0,\dots,N,j=1,\dots, \bar{d}\}$ at the nodes $\Theta_N$ of the \eqref{eigIVP}, i.e.
-%\begin{equation}\label{coll}
-%\left\{\ba{l}
-%x_{N,0}'(\theta_{i})=(\lambda +\rho)X_i+\xi^T(\theta_{i}) \gamma, \ i=1,\dots,N,\\
-%x_{N,0}(\Theta_{N,0})=\beta,
-%\ea
-%\right.
-%\end{equation}
-%we obtain similarly as before the linear operator $\mathcal{A}_{N}(\lambda):\mathbb{C}^{\bar{d}+d}\rightarrow\mathbb{C}^{\bar{d}+d}$ given by
-%\begin{equation}\label{ANlambda}
-%\mathcal{A}_{N}(\lambda)(\beta;\gamma)=(\mathcal{B}x_{N,0}(\cdot;\lambda,\beta,\gamma);\mathcal{L}x_{N,0}(\cdot;\lambda,\beta,\gamma))
-%\end{equation}
-%we conclude that $\lambda$ is eigenvalue of $\mathcal{A}_{N,0}+\mathcal{L}_N$ if and only if there exists $(\beta;\gamma) \in \mathbb{C}^{\bar{d}+d}$ such that
-%\begin{displaymath}
-%(\beta;\gamma)=\mathcal{A}_N(\lambda)(\beta;\gamma),
-%\end{displaymath}
-%and if and only if
-%\begin{equation}\label{CEN}
-%\text{det}\left(I_{\bar{d}+d}-\mathcal{A}_{N}(\lambda)\right)=0,
-%\end{equation}
-%which is the discrete version of the characteristic equation \eqref{CE}. 
+Let $Z \subseteq X$ be a Banach space of (equivalences classes of) functions which admit one (and only one) continuous representative, equipped with the $\|\cdot \|_X$ norm. Given $\lambda \in \mathbb{C},$ with $\Re \lambda  > -\rho_1$, $\beta \in \mathbb{C}^{\overline{d}}$ and $z \in Z,$ we denote $x(\cdot;\lambda,\beta,z) \in Z$ the solution of the following initial value problem
+\begin{equation}\label{IVPZ}
+\left\{\ba{l}
+x'=(\lambda +\rho)x+z, \  \theta \in \mathbb{R}_-,\\
+x(\theta_{0})=\beta,
+\ea
+\right.
+\end{equation}
+We have that $x=e(\lambda+\rho)\beta+\mathcal{H}(\lambda +\rho)z=w(e(\lambda)\beta+\mathcal{H}(\lambda)w^{-1}z),$  and, when $\beta$ is the solution of $\beta=\mathcal{B}(e(\lambda+\rho)\beta+\mathcal{H}(\lambda +\rho)z)$, we have that $x=(\mathcal{A}_0-\lambda I_X)^{-1}z.$ So the equations \eqref{IVPZ} allows to represent the resolvent equation of $\mathcal{A}_0$ in $Z,$ and the next theorem furnishes the estimate of the collocation error. 
 
-Given $\lambda \in \mathbb{C},$ with $\Re \lambda  > -\rho_1,$ $\beta \in \mathbb{C}^{\bar{d}}$ and $\gamma \in \mathbb{C}^{d},$ we denote $x_{N,0}(\cdot;\lambda,\beta,\gamma) \in w\Pi_N^{\bar{d}}$ the collocation solution of \eqref{eigIVP} at the nodes $\Theta_N$, i.e.
+\begin{theorem}\label{Th00}
+Let $\rho=\rho_1+\epsilon,\ \epsilon>0$ and $B$ an open ball in $\mathbb{C}_{\rho_1}$. If
+\bi
+\item[\texttt{(H1)}] $\| (\mathcal{I}_{N}-I_{X})\mathcal{H}(0) \|_{Z \to Z} \rightarrow 0 \  \text {as } N \rightarrow\infty,$
+\ei
+then there exists $\overline{N}:=\overline{N}(B)$ such that, for $N \geq \overline{N}$, $\lambda \in B$, $\beta \in \mathbb{C}^{\overline{d}}$ and $z \in Z$, the solution $x_{N,0}(\cdot;\lambda,\beta,z) \in w\Pi_N^{\overline{d}}$ of the collocation equations at the nodes $\Theta_N,$ i.e.
+\begin{equation}\label{collZ}
+\left\{\ba{l}
+x_{N,0}'(\theta_{i})=(\lambda +\rho)x_{N,0}(\theta_{i})+z(\theta_{i}), \ i=1,\dots,N,\\
+x_{N,0}(\theta_{0})=\beta.
+\ea
+\right.
+\end{equation} exists and it is unique. Moreover, if 
+\bi
+\item[\texttt{(H2)}] $\|(\mathcal{I}_{N}-I_{X})z \|_X \rightarrow 0 \  \text {as } N \rightarrow\infty, \ \forall z \in Z, $
+\ei
+then, for $N \geq \overline{N},$ there exists a positive constant $\overline{C}(B),$ independent of $N,$ such that 
+\be\label{Ebound1Z}
+\|x_{N,0}(\cdot;\lambda,\beta,z)-x(\cdot;\lambda,\beta,z)\|_X \leq \overline{C}(B) R_N(B) \max \left(|\beta|,\|z\|_X\right )
+\end{equation}
+\be\label{Ebound2Z}
+\|x'_{N,0}(\cdot;\lambda,\beta,z)-x'(\cdot;\lambda,\beta,z)\|_X \leq \overline{C}(B)  R_N(B) \max \left(|\beta|,\|z\|_X\right ),
+\end{equation}
+and
+\be\label{RNZ}
+R_N(B):=\sup_{\footnotesize{\ba{c}\lambda \in \overline{B}, \\\beta \in \mathbb{C}^{\overline{d}} \neq 0, z \in Z \neq 0\ea} }\frac{\| r_N(\cdot;\lambda,\beta,z) \|_{X}}{\max \left(|\beta|,\|z\|_X\right )} \end{equation} with $r_N(\theta;\lambda,\beta,z):=(\mathcal{I}_{N}-I_{X})x'(\theta;\lambda,\beta,z), \ \theta \in \mathbb{R}_{-},$  and the convergence follows.
+\end{theorem}
+
+\begin{proof}
+The proof follows the same lines as previous proofs of related results in \cite{BMV14,DSV20}, but we reproduce it for the sake of completeness. For ease of notation, we denote $\mu:=\lambda+\rho,$ and we omit to write the dependence on the parameters explicitly. By subtracting (\ref{IVPZ}) from the collocation equation \eqref{collZ}, and setting $e_{N}:=x_{N,0}-x$ and $r_{N}:=(\mathcal{I}_{N}-I_X)x',$ we get the following equation 
+\begin{equation}\label{EEQ1}
+e'_{N}=\mu \mathcal{I}_{N}e_{N}+r_{N}.
+\end{equation}
+Let $W_0:=\{ x \in  Z \ | \ x' \in Z \text{ and } x(0)=0 \}.$ Then the solution of (\ref{EEQ1}) is the function $e_{N}=V e'_{N} \in W_0,$ with $e'_{N} \in Z$ solution of
+\begin{equation}\label{EEQ2}
+e'_{N}-\mu \mathcal{I}_{N}\mathcal{H}(0)e'_{N}=r_{N},
+\end{equation}
+and viceversa.
+
+From \eqref{Hbound} we have that the operator $I_X-\mu \mathcal{H}(0)$ is invertible in $Z$, and it is bounded, i.e.
+$$
+\| (I_X-\mu \mathcal{H}(0))^{-1} \|_{Z \to Z} \leq C(B),
+$$
+with $C(B):=\sup_{\lambda \in \overline{B}} (1+ |\lambda+\rho|C_0(\lambda+\rho)).$ From (H1) and from the Banach perturbation Lemma, we conclude that there exists a positive integer $\overline{N}:=\overline{N}(B)$ such that $I_X-\mu\mathcal{I}_{N}\mathcal{H}(0)$ is invertible in $Z$ for $N\geq \overline{N},$ and
+\begin{displaymath}
+\left\| (I_X-\mu \mathcal{I}_{N}\mathcal{H}(0))^{-1}\right\|_{Z \to Z}\leq 2\left\|(I_X-\mu \mathcal{H}(0))^{-1}\right\|_{Z \to Z} \leq 2 C(B).
+\end{displaymath}
+Hence, for $N\geq \overline{N},$ $e'_{N}=(I_X-\mu \mathcal{I}_{N}\mathcal{H}(0))^{-1} r_N$ is the unique solution of (\ref{EEQ2}) in $Z$ and $e_{N}=\mathcal{H}(0)(I_X-\mu\mathcal{I}_{N}\mathcal{H}(0))^{-1}{r}_{N}=(I-\mu \mathcal{H}(0) \mathcal{I}_{N})^{-1}\mathcal{H}(0){r}_{N}$ is the unique solution of \eqref{EEQ1} in $W_0$. Thus there exits a unique $x_{N,0} \in w\Pi_N^{\overline{d}}$ and 
+\begin{displaymath}
+\ba{l}
+\|e'_{N}\|_X  \leq 2 C(B)\|r_{N}\|_X,\\[0.4cm]
+\|e_{N}\|_X \leq \|\mathcal{H}(0)e'_{N}\|_X \leq 2 \| \mathcal{H}(0)\|_{X \to X} C(B)\|r_{N}\|_X.\\
+\ea
+\end{displaymath}
+Then the bounds \eqref{Ebound1}-\eqref{Ebound2} hold with $\overline{C}(B):= 2C(B)\max\{1,\frac{1}{\rho} \}$. Finally, since $x' \in Z$, from (H2), we have that $\|r_{N}\|_x=\|(\mathcal{I}_{N}-I_X)x' \|_X \to 0$ as $N \to \infty.$ and the convergence follows for all $\lambda \in B$, $\beta \in \mathbb{C}^{\overline{d}}$ and $z \in Z.$
+\end{proof}
+
+Let's go back to \eqref{eigIVP} and we consider $ z \in \Xi_d$. From Theorem \ref{Th00} we get the following convergence result for  the solution $x_{N,0}(\cdot;\lambda,\beta,\gamma) \in w\Pi_N^{\overline{d}}$ of the collocation equations at the nodes $\Theta_N$, i.e. 
 \begin{equation}\label{coll}
 \left\{\ba{l}
 x_{N,0}'(\theta_{i})=(\lambda +\rho)x_{N,0}(\theta_{i})+\xi^T(\theta_{i}) \gamma, \ i=1,\dots,N,\\
@@ -871,113 +911,44 @@ x_{N,0}(\theta_{0})=\beta.
 \right.
 \end{equation}
 
-\begin{theorem}\label{Th0}
-Let $\rho=\rho_1+\epsilon,\ \epsilon>0$ and $B$ an open ball in $\mathbb{C}_{\rho_1}$. If
-\begin{itemize}
-\item[\text{(H1)}] 
-$\| (\mathcal{I}_{N}-I_X)\mathcal{H}(0) \|_{X \to X} \rightarrow 0 \  \text {as } N \rightarrow\infty,$\\[0.1cm]
-\item[\text{(H2)}] $(\mathcal{I}_{N}-I_X)z=0,  \ z\in \Xi_d, \ N \geq 1,$ \\[0.1cm]
-\item[\text{(H3)}] $(\mathcal{I}_{N}-I_X)w\beta=0, \ \forall \beta \in \mathbb{C}^{\bar{d}}, \ N \geq 1,$ \\
-\end{itemize}
-then there exists $\bar{N}:=\bar{N}(B)$ such that, for $N \geq \bar{N}$, $\lambda \in B$, $\beta \in \mathbb{C}^{\bar{d}}$ and $\gamma \in \mathbb{C}^{d}$, the collocation solution $x_{N,0}(\cdot;\lambda,\beta,\gamma)$ of \eqref{coll} exists and it is unique. Moreover, for $N \geq \bar{N},$ there exists a positive constant $\bar{C}(B)$ independent of $N$ such that 
+\begin{corollary}\label{Th0}
+Let $\rho=\rho_1+\epsilon,\ \epsilon>0$ and $B$ an open ball in $\mathbb{C}_{\rho_1}$. If $H(1)$ holds, then there exists $\overline{N}:=\overline{N}(B)$ such that, for $N \geq \overline{N}$, the collocation solution $x_{N,0}$ of \eqref{coll} exists and it is unique, for $\lambda \in B$, $\beta \in \mathbb{C}^{\overline{d}}$ and $\gamma \in \mathbb{C}^{d}.$  Moreover, under assumption $H(2)$, there exists a positive constant $\overline{C}(B)$ independent of $N$ such that, for  $N \geq \overline{N},$
 \be\label{Ebound1}
-\|x_{N,0}(\cdot;\lambda,\beta,\gamma)-x(\cdot;\lambda,\beta,\gamma)\|_X \leq \bar{C}(B) R_N(B) |(\beta;\gamma)|,
+\|x_{N,0}(\cdot;\overline{\lambda},\beta,\gamma)-x(\cdot;\overline{\lambda},\beta,\gamma)\|_X \leq \overline{C}(B) R_N(B) |(\beta;\gamma)|,
 \end{equation}
 \be\label{Ebound2}
-\|x'_{N,0}(\cdot;\lambda,\beta,\gamma)-x'(\cdot;\lambda,\beta,\gamma)\|_X \leq \bar{C}(B)  R_N(B) |(\beta;\gamma)|,
+\|x'_{N,0}(\cdot;\lambda,\beta,\gamma)-x'(\cdot;\lambda,\beta,\gamma)\|_X \leq \overline{C}(B)  R_N(B) |(\beta;\gamma)|,
 \end{equation} where
 \be\label{RN}
-R_N(B):=\sup_{\lambda \in \bar{B}, (\beta;\gamma) \in \mathbb{C}^{\bar{d}+d} \setminus \{0\}} \frac{\| r_N(\cdot;\lambda,\beta,\gamma) \|_X}{|(\beta;\gamma)|} \end{equation} with $r_N(\theta;\lambda,\beta,\gamma):=(\lambda+\rho)(\mathcal{I}_{N}-I_X)x(\theta;\lambda,\beta,\gamma), \ \theta \in \mathbb{C}_{-}.$  From \eqref{Ebound1} the convergence of the collocation solution \eqref{coll} to  $x(\cdot;\bar{\lambda},\beta,\gamma)$ follows for all $\lambda \in B,$ $\beta \in \mathbb{C}^{\bar{d}}$ and $\gamma \in \mathbb{C}^{d}.$
-\end{theorem}
+R_N(B):=\sup_{\lambda \in \overline{B}, (\beta;\gamma) \in \mathbb{C}^{\overline{d}+d} \setminus \{ 0\} } \frac{\| r_N(\cdot;\lambda,\beta,\gamma) \|_X}{|(\beta;\gamma)|} \end{equation} with $r_N(\theta;\lambda,\beta,\gamma):=(\mathcal{I}_{N}-I_X)x'(\theta;\lambda,\beta,\gamma), \ \theta \in \mathbb{C}_{-}.$  The convergence of the collocation solution \eqref{coll} to $x(\cdot;\lambda,\beta,\gamma)$ follows for all $\lambda \in B,$ $\beta \in \mathbb{C}^{\overline{d}}$ and $\gamma \in \mathbb{C}^{d},$ and the convergence follows.
+\end{corollary}
 
-\begin{proof}
-The proof follows the same lines as previous proofs of related results in \cite{BMV14,DSV20}, but we reproduce it for the sake of completeness. For ease of notation, we denote $\mu:=\lambda+\rho,$ and we omit to write the dependence on the parameters explicitly. By subtracting (\ref{eigIVP}) from the collocation equation \eqref{coll}, and setting $e_{N}:=x_{N,0}-x$ and $r_{N}:=\mu(\mathcal{I}_{N}-I_X)x,$ we get the following equation 
-\begin{equation}\label{EEQ1}
-e'_{N}=\mu \mathcal{I}_{N}e_{N}+r_{N}.
-\end{equation}
-Let $Y_0:=\{ x \in  X \ | \ x' \in X \text{ and } x(0)=0 \}.$ Then the solution of (\ref{EEQ1}) is the function $e_{N}=V e'_{N} \in Y_0,$ with $e'_{N} \in X$ is solution of
-\begin{equation}\label{EEQ2}
-e'_{N}-\mu \mathcal{I}_{N}\mathcal{H}(0)e'_{N}=r_{N},
-\end{equation}
-and viceversa.
-From \eqref{Hbound} we have that the operator $I_X-\mu \mathcal{H}(0)$ is invertible, and 
-$$
-\| (I_X-\mu \mathcal{H}(0))^{-1} \|_{X \to X} \leq C(B),
-$$
-with $C(B):=\sup_{\lambda \in \bar{B}} (1+ |\lambda+\rho|C_0(\lambda+\rho))$, while from (H1) and from the Banach perturbation Lemma, we conclude that there exists a positive integer $\bar{N}:=\bar{N}(B)$ such that $I_X-\mu\mathcal{I}_{N}\mathcal{H}(0)$ is invertible for $N\geq \bar{N},$ and
-\begin{displaymath}
-\left\| (I_X-\mu \mathcal{I}_{N}\mathcal{H}(0))^{-1}\right\|_{X \to X}\leq 2\left\|(I_X-\mu \mathcal{H}(0))^{-1}\right\|_{X \to X} \leq 2 C(B).
-\end{displaymath}
-Hence, for $N\geq \bar{N},$ $e'_{N}=(I_X-\mu \mathcal{I}_{N}\mathcal{H}(0))^{-1} r_N$ is the unique solution of (\ref{EEQ2}) in $X$ and $e_{N}=\mathcal{H}(0)(I_X-\mu\mathcal{I}_{N}\mathcal{H}(0))^{-1}{r}_{N}=(I-\mu \mathcal{H}(0) \mathcal{I}_{N})^{-1}\mathcal{H}(0){r}_{N}$ is the unique solution of \eqref{EEQ1} in $Y_0$. Moreover we have
-\begin{displaymath}
-\ba{l}
-\|e'_{N}\|_X  \leq 2 C(B)\|r_{N}\|_X,\\[0.4cm]
-\|e_{N}\|_X\leq \|\mathcal{H}(0)e'_{N}\| \leq 2 \| \mathcal{H}(0)\|_{X \to X} C(B)\|r_{N}\|_X,\\
-\ea
-\end{displaymath}
-Then the bounds \eqref{Ebound1}-\eqref{Ebound2} hold with $\bar{C}(B):= 2C(B)\max\{1,\frac{1}{\rho} \}$. Finally from (H2), we have that $r_{N}=\mu(\mathcal{I}_{N}-I_X)x=\mu(\mathcal{I}_{N}-I_X)(w\beta+\mathcal{H}(0)y),$ with $y=(I_X+\mu H(\mu))(z+\lambda w\beta) \in X, $ and (H1), (H3) ensure the convergence for all $\lambda \in B$, $\beta \in \mathbb{C}^{\bar{d}}$ and $\gamma \in \mathbb{C}^{d}.$
-\end{proof}
-
-\begin{remark}\label{r1} 
-Theorem \ref{Th0} remains valid if we replace assumption $(H1)$ with
-
-$(H1)^\prime$ \ $\| (\mathcal{I}_{N}-I)\mathcal{H}(0) \|_{X' \to X'} \rightarrow 0, \  \text {as } N \rightarrow\infty,$
-
-where $X' \subset X$  is a Banach space of continuous functions which contains $Y\oplus \Xi_d,$ where the derivative $x'$ of the solution of \eqref{eigIVP} lives. In this case we solve equation \eqref{EEQ1} in $Y^\prime_0:=\{ x \in  X' \ | \ x'  \in X' \text{ and } x(0)=0 \}.$ 
-
-%For the abstract delay equations and their discrete versions, the assumptions \eqref{Hbound} and (H2) hold, and $w\mathcal{C}_{\rho}(\mathbb{C}_{-},\mathbb{C}^{\bar{d}})$ equipped with the weighted infinite norm seems to be natural choice for $X'.$ In the next section we show this is not so since ${(H1)^\prime$ doesn't hold and another suitable space $X'$ is needed to get the result.
+\begin{remark}\label{r1}
+For the abstract delay equations , we have that $(\mathcal{I}_{N}-I_X)\xi_i=0, \ i=0,\ldots,d$, and so $r_N(\theta;\lambda,\beta,\gamma)=(\lambda +\rho)(\mathcal{I}_{N}-I_X)x(\theta;\lambda,\beta,\gamma)$. This is not true for the truncated interpolation scheme. 
 \end{remark}
 
-\begin{remark}\label{r2}
-The analysis in Theorem \ref{Th0} can be extended to approximate the resolvent operator of $\mathcal{A}_0$ in $X$. In this case the assumption $(H2)$ is replaced with
-
-$(H2)^\prime \ \|(\mathcal{I}_{N}-I_X)z \|_X \to 0,  \ z \in X, N \to +\infty,$
-
-and the bounds \eqref{Ebound1} and \eqref{Ebound2} still hold but with $r_N(\theta;\lambda,\beta,z):=(\mathcal{I}_{N}-I_X)x^\prime(\theta;\lambda,\beta,z), \ \theta \in \mathbb{C}_{-},$ where $x(\theta;\lambda,\beta,z)$ is the solution of the collocation equation \eqref{eigIVP} where $\xi^T\gamma$ is replaced by $z$ \cite{DSV20}.
-\end{remark}
-
-Now we are ready to derive the characteristic equation associated with $\mathcal{A}_{N,0} +\mathcal{L}_N$ \cite[Proposition 5.2]{BMV14}.
+Now we are ready to derive the discrete versione of characteristic equation, i.e. the characteristic equation for $\mathcal{A}_{N,0} +\mathcal{L}_N$ \cite[Proposition 5.2]{BMV14}.
 
 \begin{proposition}\label{PCEN}
-The eigenvalues of the finite-dimensional operator $\mathcal{A}_{N,0} +\mathcal{L}_N$ in $\mathbb{C}_\rho$ are the roots of the characteristic equation
+The eigenvalues of the finite-dimensional operator $\mathcal{A}_{0,N} +\mathcal{L}_N$ on $\mathbb{C}_\rho$ are the roots of the characteristic equation
 \begin{equation}\label{CEN}
-\text{det}(I_{\bar{d}+d}-\mathcal{A}_N(\lambda))=0,
+\text{det}(I_{\overline{d}+d}-\mathcal{A}_N(\lambda))=0,
 \end{equation}
-where $\mathcal{A}_N(\lambda): \mathbb{C}^{\bar{d}+d} \to \mathbb{C}^{\bar{d}+d}$ is the linear operator
+where $\mathcal{A}_N(\lambda): \mathbb{C}^{\overline{d}+d} \to \mathbb{C}^{\overline{d}+d}$ is the linear operator
 \begin{equation}\label{AlambdaN}
-\mathcal{A}_N(\lambda)(\beta;\gamma)=(\mathcal{B}x_{N,0}(\cdot;\lambda,\beta,\gamma);\mathcal{L}x_{N,0}(\cdot;\lambda,\beta,\gamma)).
+\mathcal{A}_N(\lambda)(\beta;\gamma)=(\mathcal{B}x_{N,0}(\cdot;\lambda,\beta,\gamma);\mathcal{L}x_{N,0}(\cdot;\lambda,\beta,\gamma)). 
 \end{equation}
 \end{proposition}
 
-By applying Rouch\'e's Theorem to compare the roots of the continuous characteristic equation \eqref{CE} and the discrete one \eqref{CEN}, we obtain the following convergence result \cite[Section 5.3.2]{BMV14}.
+By applying the Rouch\'e's Theorem to compare the roots of the continuous characteristic equation \eqref{CE} and the discrete one \eqref{CEN}, we obtain the following convergence result \cite[Section 5.3.2]{BMV14}.
 
 \begin{theorem}\label{Th2}
-Let $\rho=\rho_1+\epsilon,\ \epsilon>0,$ and $\lambda \in \mathbb{C}, \ \Re\lambda> -\rho_1$ a root of the equation \eqref{CE} with multiplicity $m$. Let $B$ be an open ball in $\mathbb{C}_{\rho_1}$ of center $\lambda$ such that $\lambda$ is the unique root of \eqref{CE} in $B$. Under the assumptions of Theorem \ref{Th0}, there exists $N_1:=N_1(B)$ such that, for $N\geq N_1,$ equation \eqref{CEN} has $m$ roots $\lambda_{i,N}, i=1,\dots,m$ (taking into account multiplicities) and 
+Let $\rho=\rho_1+\epsilon,\ \epsilon>0,$ and $\lambda \in \mathbb{C}, \ \Re\lambda> -\rho_1$ a root of the equation \eqref{CE} with multiplicity $m$. Let $B$ be an open ball in $\mathbb{C}_{\rho_1}$ of center $\lambda$ such that $\lambda$ is the unique root of \eqref{CE} in $B$. Under the assumptions of Theorem \ref{Th0}, there exits $N_1:=N_1(B),$ such that for $N\geq N_1,$ the equation \eqref{CEN} has $m$ roots $\lambda_{i,N}, i=1,\dots,m$ (taking into account multiplicities) and 
 \bd
-\max_{i=1,\dots,m}| \lambda-\lambda_{i,N}| \leq \left( C_1(B) R_N(B)\right)^{1/m},
+\max_{i=1,\dots,m}| \lambda-\lambda_{i,N}| \leq \left(C_1(B) R_N(B)\right)^{1/m},
 \ed
-with $C_1(B)$ a positive constant independent of $N$ and $R_N(B)$ as in \eqref{RN}.
+with $C_1(B)$ a positive constant independent of $N$.
 \end{theorem}
-
-
-
-%Then for DDEs we have that
-%$Y^\prime_0=\{ (0;w\psi) \ | \ \psi=V\psi', \psi' \in \mathcal{C}_{\rho}  \} \subset Y,$ and the assumption $\widetilde{(H1)}$ reduces to 
-%$$
-%\sup_{\psi' \in \mathcal{C}_{\rho}, \psi' \neq 0}{\frac{\| w(\sum_{i=1}^N \ell_i (V\psi')(\theta_{i}) -V\psi')\|_\infty}{\| w\psi' \|_\infty} \to 0, \text {as } N \rightarrow\infty,
-%$$
-%while for REs we get $Y^\prime_0=D(\mathcal{A}_0^{RE}) \subset \mathcal{C}_{\rho},$ and $\widetilde{(H1)}$ reads as
-%$$
-%\sup_{\varphi' \in \mathcal{C}_{\rho}, \varphi'\neq 0}{\frac{\| w(\sum_{i=1}^N \ell_i (V\varphi')(\theta_{i})-V\varphi')\|_1}{\| w\varphi'\|_1} \to 0, \text {as } N \rightarrow\infty.
-%$$
-
-\begin{figure}
-\begin{center}
-%\includegraphics[width=.50\textwidth]{Figg2}
-\caption{\small{The subspace $X'.$}}
-\label{schema}
-\end{center}
-\end{figure}
 
 Until now we have assumed that the operator $\mathcal{L}$ can be computed exactly, but the linearized versions of the infinite delay equations typically involve integrals, which need to be approximated by suitable quadrature rules. When the linear operator $\mathcal{L}$ is approximated by the linear operator $\widetilde{\mathcal{L}}$, if we define in \eqref{AFLN} $\mathcal{L}_N= \mathcal{R}_N\widetilde{\mathcal{L}}\mathcal{P}_{N,0},$ the expression of the linear ODE \eqref{LODE} is the same, while the characteristic equation \eqref{CEN} becomes 
 \begin{equation}\label{CCEN}
@@ -1013,6 +984,7 @@ Note that, when the approximation $\widetilde{\mathcal{F}}$ of the nonlinear ope
 
 \textcolor{blue}{commentare che poi usiamo formule di quadratura dipendenti da $N$?}
 
+ 
  
 \section{Weighted interpolation on the negative real axis}\label{S_Int}
 
