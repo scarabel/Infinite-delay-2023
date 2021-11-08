@@ -7,7 +7,6 @@
 \usepackage{algorithmic}
 \usepackage{epsfig}
 \usepackage{graphicx}
-\usepackage{xcolor}
 \usepackage[affil-it]{authblk}
 %-----------------------------------------------------------------------------
 \usepackage{showlabels}
@@ -19,6 +18,8 @@
 \usepackage{xcolor}
 \usepackage{pgfplots}
 \usepackage{tikz}
+%-----------------------------------------------------------------------------
+\usepackage{verbatim}
 %-----------------------------------------------------------------------------
 \newcommand{\blg}{\begin{algorithm}}
 \newcommand{\elg}{\end{algorithm}}
@@ -203,7 +204,7 @@ to do: The paper is organized as follows. In the next section \ref{S_ADDE} we de
 \section{Abstract formulation of infinite delay equations}\label{S_ADDE}
 
 %Both the abstract equations are complemented with their reduction to a ODE by means of the PSD. 
-In this section we formally derive an Abstract Differential Equation (ADE) to describe DDEs and REs with infinite delay. For the former we carry out the analogous program presented in \cite{GSV18} for finite delay, but for the latter inspired by \cite{twin,SDV20}, we propose a slightly different abstract formulation, whose PSD offers various computational advantages. The approach can be also easily extended to systems that couple a DDE and a RE.  For the theory we refer to \cite{DG12}. Before starting, we fix some notations. Hereafter we consider column vectors and we use the convention of writing them as rows, but separating each column block-vector elements with semicolons. We denote the transposition with the superscript $^T,$ and, for brevity, $L^p_{\rho}:=L^p_{\rho}(\mathbb{R}_{-};\mathbb{R}^{d}), 1 \leq p \leq +\infty,$ equipped with the norm $\textcolor{blue}{\|\varphi\|_{p,\rho}:=} \|w\varphi\|_p$.
+In this section we formally derive an Abstract Differential Equation (ADE) to describe DDEs and REs with infinite delay. For the former we carry out the analogous program presented in \cite{GSV18} for finite delay, but for the latter inspired by \cite{twin,SDV20}, we propose a slightly different abstract formulation, whose PSD offers various computational advantages. The approach can be also easily extended to systems that couple a DDE and a RE.  For the theory we refer to \cite{DG12}. Before starting, we fix some notations. Hereafter we consider column vectors and we use the convention of writing them as rows, but separating each column block-vector elements with semicolons. We denote the transposition with the superscript $^T,$ and, for brevity, $L^p_{\rho}:=L^p_{\rho}(\mathbb{R}_{-};\mathbb{R}^{d}), 1 \leq p \leq +\infty,$ equipped with the norm $\|\varphi\|_{p,\rho}:= \|w\varphi\|_p$.
 %, while $\bar{e_j}, j=1,\dots,\bar{d},$ is a basis for $\mathbb{R}^{\bar{d}}.$ 
 Note that each space $w L^p_{\rho}$ is isomorphic to $L^p$. In the following, we will often write the weight function $w$ explicitly to stress its role. 
 
@@ -299,7 +300,7 @@ Note that also $\mathcal{L}^{DDE}$ admits a finite-rank representation.
 
 \begin{figure}[b]
 \begin{center}
-\includegraphics[width=.89\textwidth]{Figura}
+% \includegraphics[width=.89\textwidth]{Figura}
 \caption{From the infinite delay equations in $\mathbb{R}^d$ to the abstract infinite delay equation in $X$.}
 \label{schema}
 \end{center}
@@ -383,9 +384,9 @@ Nevertheless the principle of linearised stability has been proved also for DDEs
 The results in \cite[Theorem 4.7, Theorem 3.9]{DG12} can be reformulated as follows
 
 \vspace{0.2cm}
-\bi
+\begin{itemize}
 \item Let $\bar{\psi}$ be an equilibrium of \eqref{DDE}. For the corresponding equilibrium $\bar{u}=(w\bar{\psi};w\bar{\psi})$ of the nonlinear ADE \eqref{ADDE}  we have that
-\bi
+\begin{itemize}
 \item if all the eigenvalues of $\mathcal{A}_0^{DDE}+\mathcal{L}^{DDE}$ on the right-half plane $\mathbb{C}_\rho$ have negative real part, then the equilibrium $\bar{u}$ is exponentially stable;
 \item if there exists at least one eigenvalue of $\mathcal{A}_0^{DDE}+\mathcal{L}^{DDE}$ with positive real part, then the equilibrium is unstable;
 \item the eigenvalues of $\mathcal{A}_0^{DDE}+\mathcal{L}^{DDE}$ in $\mathbb{C}_\rho$ correspond to roots of the characteristic equation
@@ -393,10 +394,10 @@ The results in \cite[Theorem 4.7, Theorem 3.9]{DG12} can be reformulated as foll
 \text{det}(\lambda I_{d}-DG(\bar{\psi})e^{\lambda \cdot})=0,
 \end{equation}
 in $\mathbb{C}_\rho$, which are at most finitely many.
-\ei
+\end{itemize}
 
 \item Let $\bar{\varphi}$ be an equilibrium of \eqref{RE}. For the corresponding equilibrium $\bar{u}=wV\bar{\varphi}$ of the nonlinear ADE \eqref{ADE} with \eqref{A0RE}-\eqref{FRE} we have that
-\bi
+\begin{itemize}
 \item if all the eigenvalues of $\mathcal{A}_0^{RE}+\mathcal{L}^{RE}$ on the right-half plane $\mathbb{C}_\rho$ have negative real part, then the equilibrium $\bar{u}$ is exponentially stable;
 \item if there exists at least one eigenvalue of $\mathcal{A}_0^{RE}+\mathcal{L}^{RE}$ with positive real part, then the equilibrium $\bar{u}$ is unstable;
 \item the eigenvalues of $\mathcal{A}_0^{RE}+\mathcal{L}^{RE}$ in $\mathbb{C}_\rho$ correspond to zeros of characteristic equation
@@ -404,7 +405,8 @@ in $\mathbb{C}_\rho$, which are at most finitely many.
 \text{det}( I_{d}-DF(\bar{\varphi})e^{\lambda \cdot})=0,
 \end{equation}
 in $\mathbb{C}_\rho,$ which are at most finitely many.
-\ei
+\end{itemize}
+\end{itemize}
 
 \section{The abstract framework}\label{S_ADE}
 In this section, keeping in mind the main features of infinite delay equations, we propose a unified abstract framework,  which is also useful for practical purposes, i.e. for the derivation and the numerical analysis of the PSD approach. Moreover other types of mathematical models could be enclosed in this frame with or without the introduction of the weight 
@@ -487,7 +489,7 @@ where $\mathcal{B}: X \to \mathbb{R}^{\bar{d}}$ is a linear and bounded operator
 We consider \eqref{ADE} where $u(t) \in D(\mathcal{A}_0)$ and $u'(t) \in X$ for $t \geq 0.$ Since every function $x \in D(\mathcal{A}_0)$ belongs to the Sobolev space $W^{p,1}(\mathbb{R}_-;\mathbb{C}^{\bar{d}}),$ it admits one (and only one) continuous representative \cite{Bre11}. In order to simplify the notation we also write $x$ for its continuous representative. Moreover $x \in  W^{p,1}(\mathbb{R}_-;\mathbb{C}^{\bar{d}}),$ is H\"{o}lder continuous, i.e. 
 $$ |x(\theta_2)-x(\theta_1)| \leq \|x'\|_X |\theta_2-\theta_1|^{1/q}, \quad \theta_2 <\theta_1 \leq 0, \ \frac{1}{p}+ \frac{1}{q}=1,$$
 for $1 <p <+\infty,$ it is Lipschitz continuous, i.e. 
-$$ |x(\theta_2)-x(\theta_1)| \leq \|x'\|_X |\theta_2-\theta_1|}, \quad \theta_2 <\theta_1 \leq 0,$$
+$$ |x(\theta_2)-x(\theta_1)| \leq \|x'\|_X |\theta_2-\theta_1|, \quad \theta_2 <\theta_1 \leq 0,$$
 for $p=\infty,$ and it is absolute continuous for $p=1$. So we introduce a subspace $Y \subset X$ of (the equivalence classes of) continuous functions, such that $D(\mathcal{A}_0) \subset Y$. This also motivates the choice to use the PSD approach, which requires that point evaluation is well defined. 
 
 %describing \lq \lq extension \rq\rq component. 
@@ -535,10 +537,10 @@ where $\mathcal{L}:=D\mathcal{F}(\bar{u}).$
 
 \bigskip
 \bas\label{PLS}(the principle of linearised stability)
-\bi
+\begin{itemize}
 \item the local stability of equilibria of the semilinear equation \eqref{ADE} can be inferred from the stability of zero-solution for the linearised equation \eqref{LADE};
 \item the position of the eigenvalues of $\mathcal{A}_0+\mathcal{L}$ on the right-half plane $\mathbb{C}_\rho$ determines the stability property of the zero solution of \eqref{LADE}.
-\ei
+\end{itemize}
 \eas
 
 We point out that, even if the abstract formulation provides a common framework to represent equations with finite ($\rho=0$) and infinite ($\rho>0$) delay, the principle of linearized stability for the latter can not be obtained from \ref{PLS} by 
@@ -608,12 +610,12 @@ where $\mathcal{A}(\lambda): \mathbb{C}^{\bar{d}+d} \to \mathbb{C}^{\bar{d}+d}$ 
 \end{equation}
 
 The computation of (part of) the eigenvalues of $\mathcal{A}_0+\mathcal{L}$ in $\mathbb{C}_\rho$ is therefore turned into the computation of the roots of the characteristic equation \eqref{CE}, and from assumption \ref{PLS} we have that  
-\bi
+\begin{itemize}
 \item the eigenvalues of $\mathcal{A}_0+\mathcal{L}$ on $\mathbb{C}_\rho$ are the characteristic roots of \eqref{CE} on  $\mathbb{C}_\rho;$
 %\item the stability of equilibria of the semilinear equation \eqref{ADE} is determined by the stability of zero for the linearised equation \eqref{LADE} (the principle of linearised stability);
 \item the position of the characteristic roots of \eqref{CE} on the right-half plane $\mathbb{C}_\rho$ determines the stability property of the zero solution of \eqref{LADE};
 %\item the characteristic roots of \eqref{CE} on  $\mathbb{C}_\rho$ are the eigenvalues of $\mathcal{A}_0+\mathcal{L}$  on  $\mathbb{C}_\rho$ on  $\mathbb{C}_\rho.$
-\ei
+\end{itemize}
 
 To conclude we attest that \eqref{CE} allows to recover both the characteristic equations \eqref{CEDDE} and \eqref{CERE}. 
 
@@ -622,7 +624,7 @@ For \eqref{LDDE} we have that $\beta=\mathcal{B}(w\alpha;w\psi)=(\alpha;\alpha),
 For \eqref{LRE} we have that  $\beta=\mathcal{B}(w\varphi)=0,$ and easy computations lead to the characteristic equation \eqref{CERE}.
 
 
-\section{The PSD approach}\label{S_APSD}
+\section{The pseudospectral discretization approach}\label{S_APSD}
 
 To derive a system of ODEs starting from the ADE, we have to transfer the functions $x \in X$ and the infinite-dimensional operators $\mathcal{A}_{0}, \mathcal{F}, \mathcal{L}$ into their discrete counterparts. % Before summarising the basic idea, we fix some notations. Hereafter we consider column vectors and we use the convention of writing them as rows, but separating each column block-vector elements with semicolons. 
 
@@ -712,23 +714,23 @@ x_{N,0}:=w\ell_{0,0}\beta+w\sum\limits_{i=1}^N \ell_{i,0}\frac{X_i}{W_i},
 \end{equation}
 with $\beta=\mathcal{B}x_{N,0}$ to ensure that $x_{N,0} \in D(\mathcal{A}_0).$ Note that $\ell_{i,0}=\theta \ell_{i}/\theta_i, \ i=1,\dots,N.$
 
-With the aid of $\mathcal{R}_N$ and $\mathcal{P}_{N,0}$ we can easily derive the discrete versions respectively of $\mathcal{A}_{0}, \mathcal{F}$ and $\mathcal{L}$, namely  %$\mathcal{A}_{N,0}: X_{N} \to X_N$ as
+With the aid of $\mathcal{R}_N$ and $\mathcal{P}_{N,0}$ we can easily derive the discrete versions respectively of $\mathcal{A}_{0}, \mathcal{F}$ and $\mathcal{L}$, namely  %$\mathcal{A}_{0,N}: X_{N} \to X_N$ as
 \begin{equation}\label{AFLN}
-\mathcal{A}_{N,0}:=\mathcal{R}_N\mathcal{A}_{0}\mathcal{P}_{N,0}, \ \mathcal{F}_{N}:=\mathcal{R}_N\mathcal{F}\mathcal{P}_{N,0}, \ \text{and} \  \mathcal{L}_{N}:=\mathcal{R}_N\mathcal{L}\mathcal{P}_{N,0}.
+\mathcal{A}_{0,N}:=\mathcal{R}_N\mathcal{A}_{0}\mathcal{P}_{N,0}, \ \mathcal{F}_{N}:=\mathcal{R}_N\mathcal{F}\mathcal{P}_{N,0}, \ \text{and} \  \mathcal{L}_{N}:=\mathcal{R}_N\mathcal{L}\mathcal{P}_{N,0}.
 \end{equation}
 
 Finally by combining all the ingredients, from the discretization of \eqref{ADE} we get the following semilinear ODE
 \begin{equation}\label{ODE}
-U'(t)=\mathcal{A}_{N,0} U(t)+\mathcal{F}_N(U(t)), \ t \geq 0,
+U'(t)=\mathcal{A}_{0,N} U(t)+\mathcal{F}_N(U(t)), \ t \geq 0,
 \end{equation}
 for $U(t) \in \mathbb{C}^{N\bar{d}},$ while the discretization of the linear ADE \eqref{LADE} leads to the linear ODE
 
 \begin{equation}\label{LODE}
-U'(t)=\mathcal{A}_{N,0} U(t) +\mathcal{L}_NU(t), \ t \geq 0.
+U'(t)=\mathcal{A}_{0,N} U(t) +\mathcal{L}_NU(t), \ t \geq 0.
 \end{equation}
 
 
-Now we can apply the software for bifurcation analysis to \eqref{ODE} to investigate the dynamics of the original equation \eqref{ADE} varying the parameters (Section \ref{S_Results}). But the main purpose of this paper is to analyse the convergence of the eigenvalues of the finite-dimensional operator $\mathcal{A}_{N,0} +\mathcal{L}_N$ to the eigenvalues of the $\mathcal{A}_{0} +\mathcal{L}$ on $\mathbb{C}_\rho.$ 
+Now we can apply the software for bifurcation analysis to \eqref{ODE} to investigate the dynamics of the original equation \eqref{ADE} varying the parameters (Section \ref{S_Results}). But the main purpose of this paper is to analyse the convergence of the eigenvalues of the finite-dimensional operator $\mathcal{A}_{0,N} +\mathcal{L}_N$ to the eigenvalues of the $\mathcal{A}_{0} +\mathcal{L}$ on $\mathbb{C}_\rho.$ 
 
 
 Before concluding this section, we illustrate the resulting PSD for abstract infinite delay equations.
@@ -871,12 +873,12 @@ x_{N,0}(\theta_{0})=\beta.
 
 \begin{theorem}\label{Th0}
 Let $\rho=\rho_1+\epsilon,\ \epsilon>0$ and $B$ an open ball in $\mathbb{C}_{\rho_1}$. If
-\bi
+\begin{itemize}
 \item[\text{(H1)}] 
 $\| (\mathcal{I}_{N}-I_X)\mathcal{H}(0) \|_{X \to X} \rightarrow 0 \  \text {as } N \rightarrow\infty,$\\[0.1cm]
 \item[\text{(H2)}] $(\mathcal{I}_{N}-I_X)z=0,  \ z\in \Xi_d, \ N \geq 1,$ \\[0.1cm]
 \item[\text{(H3)}] $(\mathcal{I}_{N}-I_X)w\beta=0, \ \forall \beta \in \mathbb{C}^{\bar{d}}, \ N \geq 1,$ \\
-\ei
+\end{itemize}
 then there exists $\bar{N}:=\bar{N}(B)$ such that, for $N \geq \bar{N}$, $\lambda \in B$, $\beta \in \mathbb{C}^{\bar{d}}$ and $\gamma \in \mathbb{C}^{d}$, the collocation solution $x_{N,0}(\cdot;\lambda,\beta,\gamma)$ of \eqref{coll} exists and it is unique. Moreover, for $N \geq \bar{N},$ there exists a positive constant $\bar{C}(B)$ independent of $N$ such that 
 \be\label{Ebound1}
 \|x_{N,0}(\cdot;\lambda,\beta,\gamma)-x(\cdot;\lambda,\beta,\gamma)\|_X \leq \bar{C}(B) R_N(B) |(\beta;\gamma)|,
@@ -971,7 +973,7 @@ with $C_1(B)$ a positive constant independent of $N$ and $R_N(B)$ as in \eqref{R
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=.50\textwidth]{Figg2}
+%\includegraphics[width=.50\textwidth]{Figg2}
 \caption{\small{The subspace $X'.$}}
 \label{schema}
 \end{center}
@@ -981,9 +983,9 @@ Until now we have assumed that the operator $\mathcal{L}$ can be computed exactl
 \begin{equation}\label{CCEN}
 \text{det}(I_{\bar{d}+d}-\widetilde{\mathcal{A}}_N(\lambda))=0,
 \end{equation}
-with $\widetilde{\mathcal{A}_N}(\lambda): \mathbb{C}^{\bar{d}+d} \to \mathbb{C}^{\bar{d}+d}$ given by
+with $\widetilde{\mathcal{A}}_N(\lambda): \mathbb{C}^{\bar{d}+d} \to \mathbb{C}^{\bar{d}+d}$ given by
 \begin{equation}\label{AlambdaN}
-\widetilde{\mathcal{A}_N}(\lambda)(\beta;\gamma)=(\mathcal{B}x_{N,0}(\cdot;\lambda,\beta,\gamma); x_{N,0}(\cdot;\lambda,\beta,\gamma); \widetilde{\mathcal{L}}x_{N,0}(\cdot;\lambda,\beta,\gamma)).
+\widetilde{\mathcal{A}}_N(\lambda)(\beta;\gamma)=(\mathcal{B}x_{N,0}(\cdot;\lambda,\beta,\gamma); x_{N,0}(\cdot;\lambda,\beta,\gamma); \widetilde{\mathcal{L}}x_{N,0}(\cdot;\lambda,\beta,\gamma)).
 \end{equation}
 
 As a consequence, in the convergence analysis we have to take into account also of the following error
@@ -1012,9 +1014,9 @@ Note that, when the approximation $\widetilde{\mathcal{F}}$ of the nonlinear ope
 \textcolor{blue}{commentare che poi usiamo formule di quadratura dipendenti da $N$?}
 
  
-\section{Weighted interpolation on $\mathbb{R}_{-}$}\label{S_Int}
+\section{Weighted interpolation on the negative real axis}\label{S_Int}
 
-To get the convergence of the interpolation process, which underlines (=is the basis of) the convergence of the eigenvalues, the choices of nodes and of the function spaces are crucial.  But the results in the literature for the classical weighted Sobolev spaces cannot be directly applied. In what follows we present novel convergence results. 
+To get the convergence of the interpolation process, which underpins the convergence of the eigenvalues, the choices of nodes and of the function spaces are crucial.  But the results in the literature for the classical weighted Sobolev spaces cannot be directly applied. In what follows we present novel convergence results. 
 
 
 to do completare \cite{GLZ06,XG02,WGW09}
@@ -1022,7 +1024,7 @@ to do completare \cite{GLZ06,XG02,WGW09}
 
 For both DDEs and REs we need to construct a convergent interpolation process through appropriate selections of $\Theta_N$ and of the subspace $X' \subset X$ (see Remark \ref{r1}). 
 
-{\cob We will first consider the DDEs in the infinity norm, then we extend the results to REs too.} Finally we will study the order of convergence of $r_N(\cdot;\lambda,\beta,\gamma)$ w.r.t. $N$ (see Theorem \ref{Th2}).
+\textcolor{blue}{ We will first consider the DDEs in the infinity norm, then we extend the results to REs too.} Finally we will study the order of convergence of $r_N(\cdot;\lambda,\beta,\gamma)$ w.r.t. $N$ (see Theorem \ref{Th2}).
 
 Without loss of generality, we take $d=1$. By standard analysis we have the following bound for the interpolation error
 \bd
@@ -1030,39 +1032,44 @@ Without loss of generality, we take $d=1$. By standard analysis we have the foll
 \ed
 where $\Lambda_{N}(\Theta_N)_{w,\infty}$ is the Lebesgue constant, defined as
 \bd
-\Lambda_{N}(\Theta_N)_{w,\infty} =\max_{\theta \in \mathbb{C}_{-}} w(\theta)\sum\limits_{i=1}^N \frac{|\ell_i(\theta)|}{W_i},
+\Lambda_{N}(\Theta_N)_{w,\infty} =\max_{\theta \in \mathbb{R}_{-}} w(\theta)\sum\limits_{i=1}^N \frac{|\ell_i(\theta)|}{W_i},
 \ed
 and $E_{N-1}(\psi)_{w,\infty}$ is the error of the best approximation of $w\psi$ in $w\Pi_{N-1}$ given by
 \bd
-E_{N-1}(\psi)_{w,\infty} =\inf_{\phi_{N} \in w\Pi_{N-1}}\| w(\psi - \phi_{N})\|_\infty.
+E_{N-1}(\psi)_{w,\infty} =\inf_{\phi_{N} \in \Pi_{N-1}}\| w(\psi - \phi_{N})\|_\infty.
 \ed
 
 Similarly to the interpolation process on a compact interval, the convergence of interpolation requires to choose \lq\lq optimal\rq\rq nodes $\Theta_N$ and functions $\psi$ in a suitable space. 
 
+\textcolor{blue}{In the following estimates, $C$ will always represent a positive constant independent of $N$ and $\psi$.}
+
 \subsection{Nodes' selection}
-Let $n=N-2.$ We consider the zeros $t_{j,\delta}, j=1,\dots, n,$ of the Laguerre polynomial of degree $n$ w.r.t. the weight function $t^\delta e^{-t}, t \in \mathbb{C}_{+},$ with $-\frac{1}{2} \leq \delta \leq \frac{3}{2},$ and we define 
+Let $n:=N-2.$ We consider the zeros $t_{j,\delta}, j=1,\dots, n,$ of the Laguerre polynomial of degree $n$ w.r.t. the weight function $t^\delta e^{-t}, t \in \mathbb{C}_{+},$ with $-\frac{1}{2} \leq \delta \leq \frac{3}{2},$ and we define 
 \begin{equation}\label{taunodes}
 \tau_{j,\delta}=-\frac{t_{j,\delta}}{2\rho}, j=1,\dots, n.
 \end{equation}
-The collocation nodes are given by the nodes \eqref{taunodes} with the addition of two extra nodes, namely
+\textcolor{blue}{Note that the factor $1/(2\rho)$ is simply a scaling of the real line according to the weight function $w$.}
+To obtain an optimal set of collocation nodes, we take the nodes \eqref{taunodes} with the addition of two extra nodes, namely
 \begin{equation}\label{onodes} 
-\theta_1=\frac{\tau_{1,\delta}}{2}, \ \theta_i=\tau_{i-1,\delta}, i=2,\dots,N-1, \ \theta_N=-\frac{2(N-2)}{\rho}.
+\theta_1=\frac{\tau_{1,\delta}}{2}, \ \theta_i=\tau_{i-1,\delta}, i=2,\dots,N-1, \ \theta_N=-\frac{2n}{\rho}.
 \end{equation}
 Then we have that
 $$
-\| w\sum\limits_{i=1}^N \ell_i \frac{\psi(\theta_i)}{W_i}\|_\infty \leq C  \log(N-1) \|w\psi\|_\infty,
+\| w\sum\limits_{i=1}^N \ell_i \frac{\psi(\theta_i)}{W_i}\|_\infty \leq C  \log(n) \|w\psi\|_\infty,
 $$
 and
 $$
-\| w(\psi - \psi_{N})\|_\infty \leq  (1+C \log(N-1)) E_{N-1}(\psi)_{w,\infty},
+\| w(\psi - \psi_{N})\|_\infty \leq  (1+C \log(n)) E_{N-1}(\psi)_{w,\infty},
 $$
-with $C$ a positive constant independent of $N$ and $\psi$ \cite[Theorem 4.3.8]{MM08}. Note that, for ease of notation, we drop the dependence on $\delta$ of the nodes $\theta_i$ in \eqref{onodes}. In what follows we will consider $\delta=0$ or $\delta=1$ and, when needed, we will explicitly refer to the resulting collocation nodes as Laguerre or extrema-Laguerre. Their distribution is shown in Figure \ref{f:nodes} for $N=10$ and $\rho=1.$  
+where $C$ is a positive constant independent of $N$ and $\psi$ \cite[Theorem 4.3.8]{MM08}. 
+
+Note that, for ease of notation, we drop the dependence on $\delta$ of the nodes $\theta_i$ in \eqref{onodes}. In what follows we will consider $\delta=0$ or $\delta=1$ and, when needed, we will explicitly refer to the resulting collocation nodes as zeros-Laguerre or extrema-Laguerre. Their distribution is shown in Figure \ref{f:nodes} for $N=10$ and $\rho=1.$  
 
 \begin{figure}[h]
 \centering
 \includegraphics[height = .12\textheight]{Nodes.png}\qquad
 \includegraphics[height = .12\textheight]{Nodes_zoom.png}
-\caption{Right: Laguerre collocation nodes $\delta=0$ (blue) and extrema-Laguerre collocation nodes $\delta=1$ (red), with the additional points (circles) for $N=10$ and $\rho=1$ Left: zoom on the rightmost nodes.}
+\caption{Right: zeros-Laguerre collocation nodes ($\delta=0$, blue) and extrema-Laguerre collocation nodes ($\delta=1$, red), for $N=10$ and $\rho=1$. The scaled Laguerre nodes are represented as dots, while the two additional nodes are represented as stars. The circle represents $\theta_0=0$. Left: zoom on the rightmost nodes.}
 \label{f:nodes}
 \end{figure}
 
@@ -1074,16 +1081,17 @@ with $C$ a positive constant independent of $N$ and $\psi$ \cite[Theorem 4.3.8]{
 %\ed
 %with $C$ a positive constant independent of $N$ and $\psi$ \cite[Theorem 4.3.9]{MM08}. 
 
-Define the function $s(\theta):=\sqrt{-\theta}, \theta \in \mathbb{R}_{-}$. Let $\psi=V\psi' \in \mathcal{C}_{\rho},$ with $\| s w \psi' \|_\infty <+\infty.$ For the choice \eqref{onodes}, then from \cite[Theorem 4.3.9]{MM08} we get the following interpolation error estimate
+Define the function $s(\theta):=\sqrt{-\theta}, \theta \in \mathbb{R}_{-}$. Let $\psi=V\psi' \in \mathcal{C}_{\rho},$ with $\| s w \psi' \|_\infty <+\infty.$ For the choice \eqref{onodes}, from \cite[Theorem 4.3.9]{MM08} we get the following interpolation error estimate
 
 \bd
 %\| w(\psi - \psi_{N})\|_\infty \leq C \frac{\log(N-1)}{(N-1)^{1/2}} (\|wV\psi'\|_\infty+\frac{1}{(2\rho)^{1/2}}\| s w \psi' \|_\infty), 
-\| w(\psi - \psi_{N})\|_\infty \leq  C \frac{ \log(N-1)}{(N-1)^{1/2}} \| s w \psi' \|_\infty,
+\| w(\psi - \psi_{N})\|_\infty \leq  C \frac{ \log(n)}{(N-1)^{1/2}} \| s w \psi' \|_\infty,
 \ed
-with $C$ a positive constant independent of $N$ and $\psi$, which can not be directly applied to get (H1). 
+where $C$ is a positive constant independent of $N$ and $\psi$. This error bound cannot be directly applied to get (H1) in $X=C_\rho$. 
+In light of Remark \ref{r1}, we define a suitable subspace $X' \subset X$ where (H1) holds true. 
 
-Having in mind to approximate the functions $\psi_\lambda:=e^{\lambda \cdot}\alpha$ for $\Re \lambda >-\rho_1,$ we proceed as follows. Let $\theta_\epsilon:=-\frac{1}{2\epsilon}$ be the point where the function $s(\theta)e^{\epsilon \theta}, \theta \in \mathbb{R}_{-},$ reaches its maximum value, and define the positive constant $C_\epsilon:=s(\theta_\epsilon)=\frac{1}{\sqrt{2\epsilon}}.$ 
-
+Having in mind to approximate the functions $\psi_\lambda:=e^{\lambda \cdot}\alpha$ for $\alpha \in \mathbb{R}^d$ and $\Re \lambda >-\rho_1,$ we proceed as follows. 
+We define as $\theta_\epsilon:=-\frac{1}{2\epsilon}$ the point where the function $s(\theta)e^{\epsilon \theta},\ \theta \in \mathbb{R}_{-},$ reaches its maximum value, and define the positive constant $C_\epsilon:=s(\theta_\epsilon)=\frac{1}{\sqrt{2\epsilon}}.$ 
 We introduce the subspace $\mathcal{C}_{\rho,\epsilon}$ of $\mathcal{C}_{\rho}$ given by
 \bd
 %\mathcal{C}_{\rho,\epsilon}=\{\psi \in \mathcal{C}_{\rho_1} \ | \  \exists \ \widetilde{\theta} \geq \theta_\epsilon \text{ such that }  w s |\psi|  \text{ is increasing in } (-\infty,\widetilde{\theta}) \}.
@@ -1101,16 +1109,15 @@ $$
 $$
 \end{lemma}
 \begin{proof}
-%Sia V uno spazio normato. Un sottoinsieme C di V è chiuso se e solo se gode della proprietà seguente: se {vn} è una successione di punti di C convergente in V , allora anche il limite di {vn} appartiene a C.
-Let $\{\psi_n\}_{n\geq0}$ be a sequence in $\mathcal{C}_{\rho,\epsilon}$ such that $\| w(\psi-\psi_n)\|_\infty \to 0$ as $n \to +\infty$. We have that $\psi \in \mathcal{C}_{\rho}$ and $\| w \psi_n\|_\infty \to  \|w \psi \|_\infty$ as $n \to +\infty.$ Choose $\theta_1 < \theta_2 \leq \theta_\epsilon.$ We have that
+Let $\{\psi_k\}_{k\geq0}$ be a sequence in $\mathcal{C}_{\rho,\epsilon}$ such that $\| w(\psi-\psi_k)\|_\infty \to 0$ as $k \to +\infty$. We have that $\psi \in \mathcal{C}_{\rho}$ and $\| w \psi_k\|_\infty \to  \|w \psi \|_\infty$ as $k \to +\infty.$ Choose $\theta_1 < \theta_2 \leq \theta_\epsilon.$ We have that
 $$
-s(\theta_1) w(\theta_1) |\psi_n(\theta_1)| \leq s(\theta_2) w(\theta_2) |\psi_n(\theta_2)| \leq s(\theta_\epsilon) w(\theta_\epsilon) |\psi_n(\theta_\epsilon)|
+s(\theta_1) w(\theta_1) |\psi_k(\theta_1)| \leq s(\theta_2) w(\theta_2) |\psi_k(\theta_2)| \leq s(\theta_\epsilon) w(\theta_\epsilon) |\psi_k(\theta_\epsilon)|
 $$
-for all $n\geq 0.$ The uniform convergence implies that
+for all $k\geq 0.$ The uniform convergence implies that
 $$
-\lim_{n \to \infty}s(\theta_1) w(\theta_1) |\psi_n(\theta_1)|=s(\theta_1) w(\theta_1) |\psi(\theta_1)|,\\
+\lim_{k \to \infty}s(\theta_1) w(\theta_1) |\psi_k(\theta_1)|=s(\theta_1) w(\theta_1) |\psi(\theta_1)|,\\
 \text{ and }\\
-\lim_{n \to \infty}s(\theta_2) w(\theta_2) |\psi_n(\theta_2)|=s(\theta_2) w(\theta_2) |\psi(\theta_2)|, \\
+\lim_{k \to \infty}s(\theta_2) w(\theta_2) |\psi_k(\theta_2)|=s(\theta_2) w(\theta_2) |\psi(\theta_2)|, \\
 $$
 and, as a consequence,  $s(\theta_1) w(\theta_1) |\psi(\theta_1)| \leq s(\theta_2) w(\theta_2) |\psi(\theta_2)|$.  Then $\psi \in \mathcal{C}_{\rho,\epsilon}$ and $\mathcal{C}_{\rho,\epsilon}$ is closed. 
 
@@ -1129,6 +1136,7 @@ and $\| s w\psi\|_\infty \leq C_\epsilon \| w\psi\|_\infty. $
 %% le funzioni \psi_n sono in \mathcal{C}_{\rho_1} e quindi abbiamo che sw \psi_n= se^{\epsilon \theta}w_1\psi_n va a zero a -\infinito e sono limitate e quindi f_n=i s\psi_n sono in \mathcal{C}_{\rho} da cui vorrei dedurre che sono convergenti a s\psi. Se dimostro che sono di Cauchy ho concluso.
 \end{proof}
 
+\textcolor{blue}{As a consequence, $C_{\rho,\epsilon}$ is a Banach space with the norm $\| \cdot\|_{\infty,\rho}$. }
 
 %We introduce the subspace $\mathcal{C}_{\rho_1}^\epsilon$ of $\mathcal{C}_{\rho}$, given by
 %\bd
@@ -1161,20 +1169,7 @@ and $\| s w\psi\|_\infty \leq C_\epsilon \| w\psi\|_\infty. $
 %% le funzioni \psi_n sono in \mathcal{C}_{\rho_1} e quindi abbiamo che sw \psi_n= se^{\epsilon \theta}w_1\psi_n va a zero a -\infinito e sono limitate e quindi f_n=i s\psi_n sono in \mathcal{C}_{\rho} da cui vorrei dedurre che sono convergenti a s\psi. Se dimostro che sono di Cauchy ho concluso.
 %\end{proof}
 
-\begin{lemma}\label{L1}
-Let $\psi \in \mathcal{C}_{\rho,\epsilon}$ and $\nu \in (0,1).$ Then there exists $\widetilde{N}:=\widetilde{N}(\nu,\epsilon) \in \mathbb{N},$ such that
-$$
-\frac{ \| s w \psi  \|_\infty}{\sqrt{N}} \leq  \frac{\| w \psi \|_\infty} {\sqrt{N}^{\nu}}, \ \text{ for all } N \geq \widetilde{N}.
-$$
-\end{lemma}
-\begin{proof}
-Given $\nu \in (0,1),$ there exists $\widetilde{N}:=\widetilde{N}(\nu,\epsilon)$ such that $N^{1-\nu}> |\theta_\epsilon|, $ for all $N \geq \widetilde{N}.$
-Then from Lemma \ref{L0} we get 
-$$
-\frac{ \| s w \psi  \|_\infty}{\sqrt{N}} \leq    \| w \psi \|_\infty (\frac{N^{1-\nu}}{N})^{1/2} \leq \frac{\| w \psi \|_\infty} {(\sqrt{N})^{\nu}}, 
-$$
-for all $N \geq \widetilde{N},$ and the proof is complete.
-\end{proof}
+
 %\begin{lemma}\label{L2}
 %The linear operator $V: \mathcal{C}_{\rho_1}^\epsilon_{0,\rho} \to \mathcal{C}_{\rho_1}^\epsilon_{0,\rho}$ is compact.
 %\end{lemma}
@@ -1187,12 +1182,12 @@ for all $N \geq \widetilde{N},$ and the proof is complete.
 %\end{proof}
 
 \begin{theorem}\label{Th4}
-Let $\psi=V\psi' \in \mathcal{C}_{\rho,\epsilon},$ with $\psi' \in \mathcal{C}_{\rho,\epsilon},$ and let $\nu \in (0,1).$ By selecting the nodes \eqref{onodes},  
+Let $\psi=V\psi' \in \mathcal{C}_{\rho,\epsilon},$ with $\psi' \in \mathcal{C}_{\rho,\epsilon}.$ By selecting the nodes \eqref{onodes},  
 we get the following error estimate for the weighted interpolation error for sufficiently large $N$
 \bd
-\| w(\psi - \psi_{N})\|_\infty \leq C \frac{\log(N-2)}{(N-1)^{\nu/2}} \| w \psi' \|_\infty, 
+\| w(\psi - \psi_{N})\|_\infty \leq C \frac{\log(n)}{\sqrt{N-1}} \| w \psi' \|_\infty, 
 \ed
-with $C$ a positive constant independent of $N$ and $\psi.$
+where $C$ is a positive constant independent of $N$ and $\psi.$
 \end{theorem}
 \begin{proof}
 The results is a straightforward consequence of the Favard-type inequality  
@@ -1202,7 +1197,11 @@ E_{N-1}(V\psi')_{w,\infty}  \leq  \frac{C}{\sqrt{N-1}}E_{N-2}(\psi')_{sw,\infty}
 combined with the choice of the nodes \eqref{onodes} and Lemma \ref{L1}.
 \end{proof}
 
-For DDEs the convergence of the collocation solution to the true solution follows by choosing $X': =\{ (w\alpha;w\psi ) \ | w\psi \in w\mathcal{C}_{\rho,\epsilon} \}$ and $Y^\prime_0=\{ (0;w\psi ) \ | \ \psi=V\psi'  \in \mathcal{C}_{\rho,\epsilon}, \psi' \in \mathcal{C}_{\rho,\epsilon} \},$ while for REs, we consider $X'=\{ w\varphi  \ | w\psi \in w\mathcal{C}_{\rho,\epsilon} \}$ equipped with infinity norm and $Y^\prime_0=\{ w\varphi \ | \ \varphi=V\varphi'  \in \mathcal{C}_{\rho,\epsilon}, \varphi' \in \mathcal{C}_{\rho,\epsilon} \}.$ 
+From Lemma \ref{L0}, it follows that $C_{\rho,\epsilon}$ is a Banach space provided with the weighted infinity norm. Moreover, norm convergence of interpolation holds in $C_{\rho,\epsilon}$ and, by Remark \ref{r1}, we can use $C_{\rho,\epsilon}$ to conclude the assertion of Theorem \ref{Th0}.
+
+Specifically, for DDEs the convergence of the collocation solution to the true solution follows by choosing $X': =\{ (w\alpha;w\psi ) \ | \psi \in \mathcal{C}_{\rho,\epsilon} \}$ and $Y^\prime_0=\{ (0;w\psi ) \ | \ \psi=V\psi'  \in \mathcal{C}_{\rho,\epsilon}, \psi' \in \mathcal{C}_{\rho,\epsilon} \}$. 
+For REs, we consider $X'=\{ w\varphi  \ | \psi \in \mathcal{C}_{\rho,\epsilon} \}$, equipped with the weighted infinity norm, and $Y^\prime_0=\{ w\varphi \ | \ \varphi=V\varphi'  \in \mathcal{C}_{\rho,\epsilon}, \varphi' \in \mathcal{C}_{\rho,\epsilon} \}.$ 
+\textcolor{blue}{Comment on convergence in $L^1$ norm?}
 
 %By using the error bounds in weighted $\infty-$norm, we derive the bounds in weighted$1-$ norm, and so we get the convergence for REs too.
 to do truncated interpolation
@@ -1230,7 +1229,7 @@ $$
 %$$
 and by choosing the nodes \eqref{onodes}, we get for all $k >1,$ 
 $$
-\| (\lambda+\rho)w(\psi_\lambda -\psi_{\lambda,N})\|_\infty \leq C |\lambda+\rho| \log(N-2) \left(\frac{C_\epsilon |\lambda| \sqrt{k}}{\sqrt{N-1}}\right)^k |\alpha |,
+\| (\lambda+\rho)w(\psi_\lambda -\psi_{\lambda,N})\|_\infty \leq C |\lambda+\rho| \log(n) \left(\frac{C_\epsilon |\lambda| \sqrt{k}}{\sqrt{N-1}}\right)^k |\alpha |,
 $$
 \cite[Theorem 4.3.9]{MM08}.  
 
@@ -1238,11 +1237,12 @@ As in Lemma \ref{L1}, we have that for all $k >1$ and sufficiently large $N,$ th
 
 TO DO Completare con oss RE e DDE /RE
 
-\section{Weighted quadrature rules on $\mathbb{R}_-$}
+\section{Weighted quadrature rules on the negative real axis}
 
 Infinite delay equations often involve integrals on real semiaxis that need to be approximated. The Gauss--Laguerre rules are the classical and most known approaches in the literature \cite{MM08}.
 
-For easy implementation, when computing integrals on $\mathbb{R}_-,$ we use the scaled Gauss-Laguerre (GL) formula associated with the zeros $\tau_{i,0}, i=1,\dots,n,$ or the scaled Gauss-Radau-Laguerre (GRL) formula associated with $\tau_{0,1}=0, \tau_{i,1}, i=1,\dots,n. $ In this way, there is no need to interpolate the vector when computing the state values at the quadrature nodes, as the values are already included in the discretized state.
+For easy implementation, when computing integrals on $\mathbb{R}_-,$ we use the scaled Gauss-Laguerre (GL) formula associated with the zeros $\tau_{i,0}, i=1,\dots,n,$ or the scaled Gauss-Radau-Laguerre (GRL) formula associated with $\tau_{0,1}=0, \tau_{i,1}, i=1,\dots,n. $ 
+In this way, there is no need to interpolate the vector when computing the state values at the quadrature nodes, as the values are already included in the discretized state.
 
 We define the error $q_{n,0}$ of the scaled GL quadrature formula as 
 $$
@@ -1258,10 +1258,12 @@ For all $f \in \mathcal{C}_\rho$ we have that
 \end{proposition}
 \begin{proof}
 Since the GL quadrature formula has degree of exactness $2n-1,$ for $P \in \Pi_{2n-1},$ we have
+$$
 \ba{ll}
 |q_{n,0}(f)| &\leq \int\limits_{-\infty}^0 e^{2\rho \theta} |(f-P)(\theta)| d\theta + \sum\limits_{i=1}^n  (b_{i,0}e^{-\rho \tau_{i,0}})|(f-P)(\tau_{i,0})| e^{\rho \tau_{i,0}}\\
 &\leq \|w(f-P)\|_\infty (\int\limits_{-\infty}^0 e^{\rho \theta} d\theta + \sum\limits_{i=1}^n  b_{i,0}e^{-\rho\tau_{i,0}}).\\
 \ea
+$$
 
 From $b_{i,0} \sim (\tau_{i,0}-\tau_{i+1,0})e^{2\rho \tau_{i,0}}, i=1,\dots,n,$ with $\tau_{0,0}=0$ \cite[formula (2.3.60)]{MM08}, we have 
 $$\sum\limits_{i=1}^n  (\tau_{i,0}-\tau_{i+1,0}) e^{\rho  \tau_{i,0}} <\sum\limits_{i=1}^n \int\limits_{\tau_{i+1,0}}^{\tau_{i,0}}  e^{\rho \theta} d\theta < \int\limits_{-\infty}^0 e^{\rho \theta} d\theta.$$
@@ -1333,184 +1335,253 @@ to do: dire qualcosa su RE e DDE/RE.
 
 
 \section{Numerical results}\label{S_Results}
-\subsection{Implementation issues} 
-``collocation nodes'' = the scaled Laguerre nodes $+$ additional points; 
-``collocation $+$ zero''
-
-
-The Laguerre nodes are computed using the publicly available MATLAB suites from [Weideman and Reddy] and [Gautschi]. 
-In particular, the nodes associated with $\delta = 0$, which correspond to the zeros of the Laguerre polynomial of degree $N$, are computed using the code \verb!lagroots.m! by [Weideman and Reddy]; the nodes associated with $\delta = 1$, which correspond to the extrema of the Laguerre polynomial of degree $N$ with the additional node $\theta=0$, are computed using the function \verb!radau_laguerre.m! from [Gautschi], which also returns the corresponding weights $\omega_j$ for the Laguerre--Gauss--Radau quadrature formula.
-Explicit expressions for the weights Gauss-Radau quadrature are given in \cite{G00}.
-
-For the analysis, it is important to understand how the spectrum of the differentiation matrix is located in the complex plane, especially since, for collocation meshes in the infinite interval, limited theoretical results are known [check literature]. 
-The corresponding differentiation matrices (for weighted differentiation) are computed using the function \verb!poldif.m! by [Weideman and Reddy].
-Figure \ref{f:eigenvalues} shows the spectrum of the differentiation matrix $D_N - \rho I_N$ for different values of $N$, for $\rho = 1$. We observe that, for both choices of the mesh points, the eigenvalues remain to the left of the vertical line $\Re \lambda = -\rho$ in the complex plane. 
-Compared to the mesh obtained from Laguerre extrema, the nodes obtained from Laguerre zeros remain further away from the line $\Re \lambda = -\rho$, suggesting they may be preferable to avoid that perturbations of eigenvalues fall within the right half-plane. However, Laguerre zeros also introduce eigenvalues with negative real part but large modulus (cf. left panels of Figure \ref{f:eigenvalues}). 
-The asymptotic behaviour of the real and imaginary parts of such leftmost eigenvalues appear to be of order one, see Figure \ref{f:eigenvalues_behaviour}, first row.
-Figure \ref{f:eigenvalues_behaviour}, second row, also shows the asymptotic behaviour of the rightmost eigenvalues for the collocation nodes obtained from both Laguerre zeros and extrema, which appears to approach the vertical line $\Re\lambda = -\rho$ with order $O(1/N)$.  
-
-It is also interesting to note the effect of the additional nodes introduced in Section XXX on the spectra of the differentiation matrices (Figure \ref{f:eigenvalues}), compared to using only the Laguerre nodes (including $\theta = 0$), see Figure \ref{f:eigenvalues_base} and [AMC 2018].
-In the case of Laguerre--Radau nodes, the effect of the additional nodes is to perturb the eigenvalues that lie on the vertical line $\Re\lambda = -\rho$, shifting and ``bending'' them to the left of the vertical line; for Laguerre zeros, the additional nodes have the main effect of introducing two negative eigenvalue with large modulus, which are absent Figure 3 (left panels). 
-
-\begin{figure}[p]
-\centering
-\includegraphics[width = \textwidth]{Eigenvalues.png}
-\caption{The left panels show the computed spectrum of the matrix $D_N - \rho I_N$ for $\rho = 1$ and different values of $N$, both for the meshes associated with Laguerre zeros and extrema. The right panels show only the rightmost part of spectrum, which remains to the left of the vertical line $\Re \lambda = -\rho$.
-}
-\label{f:eigenvalues}
-\end{figure}
-
-\begin{figure}[p]
-\centering
-\includegraphics[width = \textwidth]{Eigenvalues_behaviour.png}
-\caption{Behaviour of the real and imaginary part of the largest-in-modulus eigenvalues for Laguerre zeros (first row), and behaviour of the rightmost eigenvalues for collocation nodes on both Laguerre zeros and extrema (second row). 
-}
-\label{f:eigenvalues_behaviour}
-\end{figure}
 
 \begin{figure}[p]
 \centering
 \includegraphics[width = \textwidth]{Eigenvalues_base.png}
-\caption{The left panels show the computed spectrum of the matrix $D_N - \rho I_N$ for $\rho = 1$ and different values of $N$, both for Laguerre zeros and extrema (both including the node $\theta=0$). Note the effect of the additional nodes by comparing with Figure \ref{f:eigenvalues}.
+\caption{Left panels: computed spectrum of $D_N - \rho I_N$ for $\rho = 1$, for both Laguerre zeros $\tau_{j,0}$ and Laguerre extrema $\tau_{j,1}$, $j=1,\dots,n$, see \eqref{taunodes}. Middle: close-up on the rightmost eigenvalues for zeros--Laguerre; right: close-up on the eigenvalues for extrema--Laguerre, with the computed spectral abscissa. Different rows correspond to different discretization indices ($N=10,20,40$).
 }
 \label{f:eigenvalues_base}
 \end{figure}
  
-To compute the quadrature weights, we use the MATLAB suite from [Gautschi], and more specifically the codes \verb!radau_laguerre.m! for Radau nodes, and \verb!r_laguerre.m! combined with \verb!gauss.m! for Laguerre zeros. 
+\begin{figure}[p]
+\centering
+\includegraphics[width = \textwidth]{Eigenvalues.png}
+\caption{Left panels: computed spectrum of $D_N - \rho I_N$ for $\rho = 1$, for zeros--Laguerre and extrema--Laguerre collocation nodes \eqref{onodes}. Middle: close-up on the rightmost eigenvalues for zeros--Laguerre; right: close-up on the eigenvalues for extrema--Laguerre, with the computed spectral abscissa. Different rows correspond to different discretization indices ($N=10,20,40$).
+}
+\label{f:eigenvalues}
+\end{figure}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width = \textwidth]{Eigenvalues_behaviour.png}
+\caption{First row: behaviour of the real and imaginary part of the leftmost eigenvalues for zeros--Laguerre (left panel), and numerical comparison with order of divergence $O(N)$ (right panel). Second row: behaviour of the spectral abscissa for zeros--Laguerre and extrema--Laguerre collocation nodes \eqref{onodes}, with respect to the line $\Re\lambda = -\rho$ (left panel), and numerical comparison with order of convergence $O(1/N)$ (right panel). 
+}
+\label{f:eigenvalues_behaviour}
+\end{figure}
 
-to do ?: Usare gradau_laguerre.m  scaricabile da https://www.cs.purdue.edu/archives/2002/wxg/codes/HOGGRL.html
-Matlab codes of the paper Gautschi 'High-order generalized Gauss-Radau and Gauss-Lobatto formulae for Jacobi and Laguerre weight functions', Numer. Algorithms 51 (2009), 143--149.
- 
-\textbf{Say that we use Laguerre zeros for linear equations, Laguerre--Radau for nonlinear equations.}
+% ``collocation nodes'' = the scaled Laguerre nodes $+$ additional points; 
+% ``collocation $+$ zero''
+
+In this section we present some numerical results to illustrate the theoretical convergence proved in Theorem \ref{Th0}.
+The Laguerre nodes and the weights for the corresponding quadrature rules are computed using the publicly available MATLAB suites from \cite{G00}, where explicit expressions for the weights of the Gauss--Radau quadrature are also given.\footnote{More specifically, we compute the quadrature nodes and weights using the function \texttt{radau\_laguerre.m} for GRL rules, and \texttt{r\_laguerre.m} combined with \texttt{gauss.m} for GL rules \cite{G00}.}
+
+In light of the theory in \cite{DG12} (cfr.\ Section \ref{SS_PLS}), the stability of the zero solution of a linear delay equation is determined by the part of the spectrum that lies in the right-half plane $\mathbb{C}_\rho$ for some $\rho>0$. Therefore, all the eigenvalues with $\Re\lambda<-\rho$ that arise from the discretization procedure do not affect the stability analysis, and are referred to as ``uninteresting eigenvalues''. 
+
+\subsection{Spectrum of $\mathcal{A}_{0,N}$}
+
+We first focus on the operator $\mathcal{A}_0$ defined in \eqref{A0}--\eqref{DA0} with trivial boundary condition ($\mathcal{B}\equiv 0$), and its PSD $\mathcal{A}_{0,N}$ defined in \eqref{AFLN}. 
+Using the Lagrange representation of the interpolating polynomial \eqref{xN0}, it is easy to see that $\mathcal{A}_{0,N}$ is represented by the $N \times N$ matrix $D_N - \rho I_N$, where $I_N$ is the identity matrix in $\mathbb{R}^N$, and
+$$ (D_N)_{ij} := \frac{\diff}{\diff \theta} \left( \frac{w(\theta)}{w(\theta_j)} \ell_{j,0}(\theta) \right) \Big|_{\theta = \theta_i}, \qquad i,j=1,\dots,N.$$
+The differentiation matrix $D_N$ is computed using the computational suite \cite{Weideman2000}, and specifically the function \texttt{poldif.m}.
+
+The operator $\mathcal{A}_0$ with trivial boundary condition has no eigenvalues. To preserve this property in view of the approximation of the spectrum of linear operators, $\mathcal{A}_{0,N}$ should have no eigenvalues in $\mathbb{C}_\rho$. 
+This property has already been observed numerically for differentiation matrices obtained from GL and GRL nodes in \cite{GSV18}. 
+It is therefore important to understand how the spectrum of $\mathcal{A}_{0,N}$ for the collocation nodes \eqref{onodes} is located in the complex plane, especially since, for collocation meshes in the infinite interval, limited theoretical results are known. 
+Without loss of generality, we fix $\rho=1$.
+
+First, we study the effect of the nodes $\theta_1$ and $\theta_N$ (cfr.~\eqref{onodes}) compared to excluding such nodes (Figures \ref{f:eigenvalues_base}--\ref{f:eigenvalues}).
+For zeros--Laguerre, adding the two nodes has the main effect of introducing two negative eigenvalues with large modulus, which are absent in Figure \ref{f:eigenvalues_base}; for extrema--Laguerre, adding the two nodes perturbs the eigenvalues pushing them further to the left of the vertical line.
+For both choices of the collocation nodes, all the eigenvalues are located to the left of the vertical line $\Re \lambda = -\rho$ in the complex plane, and therefore do not affect the study of stability which focus on $\mathbb{C}_\rho$. 
+
+Figure \ref{f:eigenvalues_behaviour} shows more in detail the observed behaviour of the leftmost and rightmost eigenvalues. In particular, the asymptotic behaviour of the real and imaginary parts of the large negative eigenvalues associated with zeros--Laguerre appear to be $O(N)$ (first row).
+On the other hand, the spectral abscissas for both zeros--Laguerre and extrema--Laguerre seem to approach the vertical line $\Re\lambda = -\rho$ from the left with order $O(1/N)$ (second row). 
+
+% to do ?: Usare \verb!gradau_laguerre.m!  scaricabile da 
+% \url{https://www.cs.purdue.edu/archives/2002/wxg/codes/HOGGRL.html}
+% Matlab codes of the paper Gautschi 'High-order generalized Gauss-Radau and Gauss-Lobatto formulae for Jacobi and Laguerre weight functions', Numer. Algorithms 51 (2009), 143--149.
+
 
 
 \subsection{Approximation of eigenvalues of linear equations}
 
-We first study numerically the convergence of the eigenvalues by considering linear equations with known spectrum. 
+\begin{figure}[t]
+\centering
+\includegraphics[height=.3\textheight]{Linear_DDE_im_eigs}
+\caption{
+Computed spectra of $\mathcal{A}_{N}$ (red crosses) and $D_N-\rho I_N$ (blue crosses) for the DDE \eqref{linear-DDE} for zeros--Laguerre (left) and extrema--Laguerre (right) collocation nodes, with $N=50$. 
+Parameters are taken as $\mu=2$, $a=1$, $k_0=-4.5$, corresponding to $\lambda=-0.5\pm 1.5 i$, with $\rho=1$. The exact characteristic roots (circles) are computed from \eqref{lambda-DDE}; larger eigenvalues to the left are not shown. The lower half-plane is not shown for symmetry reasons.
+}
+\label{f:LinearDDE_eigs}
+\end{figure}
 
+\begin{figure}[p]
+\centering
+\includegraphics[height=.3\textheight]{Linear_DDE_im_conv}\\
+\caption{
+Linear DDE \eqref{linear-DDE}. 
+Log-log plot of the absolute error in the approximation of the characteristic root $\lambda$ (black) and the error in the approximation of the eigenfunction $\psi_\lambda$ in weighted supremum norm (red). Left panels: zeros--Laguerre collocation nodes and GL quadrature rules; right panels: extrema--Laguerre collocation nodes and GRL quadrature rules.
+First row: $\rho=\mu/2$; second row: $\rho=\mu/3$. The other parameter values are chosen as in Figure \ref{f:LinearDDE_eigs}.
+}
+\label{f:LinearDDE_im}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[height=.3\textheight]{Linear_DDE_zeros-truncated_im_conv}
+\caption{
+Same as Figure \ref{f:LinearDDE_im}, using truncated interpolation and quadrature rules on zeros--Laguerre with truncation parameter $r=1/2$ (left) and $r=1/4$ (right). 
+}
+\label{f:LinearDDE_im_truncated}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{Linear_DDE_re_conv}
+\caption{
+Same as Figure \ref{f:LinearDDE_im}, for parameters $\mu=2$, $a=1$, $k_0=-2.25$, corresponding to $\lambda=-0.5$ with double multiplicity. Note that the highest accuracy is halved due to the multiplicity of eigenvalues.
+}
+\label{f:LinearDDE_re}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[height=.3\textheight]{Linear_DDE_gamma_conv}
+\caption{
+Same as Figure \ref{f:LinearDDE_im}, for a kernel describing a Gamma-distributed density function with shape parameter $2$ and rate parameter $\mu=4$. The reference eigenvalue is computed via PSD with $N=100$. First row: $\rho=\mu/2$; second row: $\rho=\mu/4$.
+}
+\label{f:LinearDDE_gamma}
+\end{figure}
+
+We now consider the approximation of stability of linear equations. 
 We first consider the scalar linear DDE
 \begin{equation} \label{linear-DDE}
 \frac{\diff y}{\diff t}(t) = a y(t) + \int_0^{+\infty} k(s) y(t-s) \diff s, \quad t > 0,
  \end{equation}
-$a \in \mathbb{R}$ and $k(s) = k_0 e^{-\mu s}, \mu \in \mathbb{R}_+.$ We have that $\bar{y}=0$ is an equilibrium for \eqrefl{linear-DDE} if and only if $a+\int_0^{+\infty} k(s)  \diff s \neq 0.$ Let $\rho>0$ such that $\mu > \rho$ and $\Re \lambda  + \rho >0$. Then $\Re \lambda  > -\mu$ and the characteristic equation is
+for $a \in \mathbb{R}$ and $k \in L^1(\mathbb{R}^+)$ with $k(s)e^{\rho s} \to 0$ as $s \to \infty$ for some $\rho > 0$.  
+If $a+\int_0^{+\infty} k(s)  \diff s \neq 0,$ then $\bar{y}=0$ is the unique equilibrium of \eqref{linear-DDE}. The characteristic roots in $\mathbb{C}_\rho$ are the solutions of 
+\begin{equation}
+\lambda = \widehat{k}(\lambda), \qquad \lambda \in \mathbb{C}_\rho,
+\end{equation}
+where $\widehat{k}$ denotes the Laplace transform of $k$.
+The characteristic roots in $\mathbb{C}_\rho$ are eigenvalues of the linear operator $\mathcal{A} := \mathcal{A}_0^{DDE} + \mathcal{L}^{DDE}$, see \eqref{LADDE}, and we want to study how the spectrum of the PSD $\mathcal{A}_N$ approximates the spectrum of $\mathcal{A}$ in $\mathbb{C}_\rho$.
+
+Choosing $k(s) = k_0 e^{-\mu s},\ \mu \in \mathbb{R}_+$, and taking $\rho < \mu$, the characteristic equation is
 \begin{align}
-	\lambda- a - \frac{k_0}{\lambda + \mu}=0, \label{CE-DDE}
+	\lambda- a - \frac{k_0}{\lambda + \mu}=0, \qquad \lambda \in \mathbb{C}_\rho, \label{CE-DDE-exp}
 \end{align}
-for $\lambda \in \mathbb{C}_\rho.$  By writing $\lambda = \Re \lambda +i\Im \lambda$ for $\Re \lambda , \Im \lambda\in \mathbb{R}$, $\Im \lambda \geq 0$, we can solve the characteristic equation explicitly and get
+which can be solved explicitly to obtain
 \begin{equation} \label{lambda-DDE}
 \Re \lambda = \frac{a-\mu}{2}, \quad \Im \lambda^2 = -k_0-\left(\frac{a+\mu}{2}\right)^2.
 \end{equation}
 Notice that a necessary condition for the existence of characteristic roots is
-$$ k_0 \leq - \left(\frac{a+\mu}{2}\right)^2.$$
-If the inequality is strict, there exists a pair of complex conjugate characteristic roots of \eqref{CE-DDE}. Otherwise, there exists one single real root with double multiplicity. This allows to experimentally confirm the effect on the convergence of an eigenvalue with double multiplicity (first rows of Figures \ref{f:LinearDDE_ext}--\ref{f:LinearDDE_zeros}). 
+$ k_0 \leq - \left(\frac{a+\mu}{2}\right)^2.$
+If the inequality is strict, there exists a pair of complex conjugate characteristic roots of \eqref{CE-DDE-exp}. Otherwise, \eqref{CE-DDE-exp} admits one single real root with double multiplicity.
 
-For the numerical tests, in order to take advantage of the accuracy of the quadrature formulas, we take $\rho = \mu/2$ so that according to the Propositions \ref{FQG}--\ref{FQGR} the quadrature errors depend on the best uniform weighted approximation of $\psi_\lambda=e^{\lambda \cdot}$ (Figures \ref{f:LinearDDE_ext}--\ref{f:LinearDDE_zeros}).
+An example of the computed spectrum of $\mathcal{A}_{N}$ is shown in Figure \ref{f:LinearDDE_eigs}, together with the exact characteristic roots computed from \eqref{CE-DDE-exp}. Note that the spectrum of $\mathcal{A}_{N}$ contains two eigenvalues approximating the exact characteristic roots, plus a set of eigenvalues that are perturbations of the spectrum of $D_N-\rho I_N$, which however remain to the left of the vertical line $\Re\lambda = -\rho$, and are therefore uninteresting.
 
-To stress the importance of the choice of the parameter $\rho$ in relation with the model parameters, we show the convergence observed for a different choice of $\mu$, namely $\rho = \mu/3$. In this case the quadrature errors depend on the best uniform weighted approximation of $w\psi_\lambda$ (Figure \ref{f:LinearDDE_mu3rho}). Despite a similar (spectral) convergence trend, the same accuracy requires larger values of $N$ than in the case of $\rho = \mu/2$. 
- 
-As a second example, we consider the linear RE 
-\begin{equation}\label{linear-RE}
-b(t) = \int_0^{+\infty} k(s) b(t-s) \diff s, \quad t > 0,
+The spectrum in Figure \ref{f:LinearDDE_eigs} was obtained taking $\rho := \mu/2$, as this value allows to take advantage of the accuracy of the quadrature rules. Indeed, according to Propositions \ref{FQG}--\ref{FQGR}, the quadrature errors depend on the best uniform approximation of $\psi_\lambda=e^{\lambda \cdot}$. 
+However, a different choice of $\rho$ is possible at the expense of lower convergence, as in this case the quadrature errors depend on the best uniform approximation \textcolor{blue}{of $w\psi_\lambda$.}
+This is illustrated in Figure \ref{f:LinearDDE_im}: despite a similar (spectral) convergence trend until a certain accuracy barrier is reached, the same accuracy requires smaller values of $N$ for $\rho = \mu/2$ (first row) than for $\rho=\mu/3$ (second row), \textcolor{blue}{due to the larger value of the derivatives. }
+In the figure, the convergence to the eigenfunction $\psi_\lambda$ is measured by computing the error between $\psi_\lambda$ and the discrete eigenfunction of $\mathcal{A}_{N}$ in weighted supremum norm (restricting to the collocation nodes).
+
+We also tested the performance of truncated interpolation and quadrature rules on zeros--Laguerre collocation nodes (Figure \ref{f:LinearDDE_im_truncated}). 
+The convergence shows a similar spectral behaviour, although slower than using the full mesh (cfr. Figure \ref{f:LinearDDE_eigs}, first row). However, the slower convergence comes with the advantage of a much smaller dimension of the matrices, due to the truncation of the mesh according to the parameter $r$. In particular, the lower $r$, the slower the convergence, as shown in the two panels. 
+
+The case of eigenvalues with double multiplicity is investigated in Figure \ref{f:LinearDDE_re}.
+The convergence still shows a spectral trend, but the effect of double multiplicity if to halve the maximum accuracy attainable via PSD.
+Similarly as before, $\rho=\mu/2$ is an optimal choice for the quadrature rules, but the convergence is spectral also for different values of $\rho$.
+
+We also considered a non-exponential kernel $k(s)$, defined as the density function $f_{\alpha}^{(n)} (s)$ of a Gamma-distributed random variable with rate parameter $\alpha$ and shape parameter $n$, 
+\begin{equation}\label{Gamma-density}
+f_{\alpha}^{(n)} (s) = \frac{\alpha^n s^{n-1} e^{-\alpha s}}{\Gamma(n)}, \quad s\geq 0.
 \end{equation}
-for $k(s) = k_0 e^{-\mu s}, \mu, k_0 \in \mathbb{R}_+$. We have that  $\bar{b}=0$ is an equilibrium for \eqrefl{linear-RE} if and only if $\int_0^{+\infty} k(s) \diff s= \frac{k_0}{\mu} \neq 1.$ Let $\rho>0$ such that $\mu > \rho$ and $\Re \lambda  + \rho >0$. Then $\Re \lambda +\mu > 0$ and the characteristic equation is $\mathcal{A}(\lambda)=1 - \int_0^{+\infty} k(s) \ee^{-\lambda s} \diff s= 1 - \frac{k_0}{\lambda + \mu.}$ The only characteristic root $\lambda \in \mathbb{C}_\rho$ is 
-\begin{equation} \label{lambda-RE}
-\lambda = k_0 - \mu. 
-\end{equation}
-Hence we test the accuracy of the approximation of this root obtained by solving its discrete counterpart, i.e.  
-$$ \mathcal{A}_N(\lambda)=1 - \int_0^{+\infty} k(s) \varphi'_{N,\lambda}(s) \diff s=0, $$
-which becomes
-$$
-\widetilde{\mathcal{A}_N}(\lambda)=1- \sum_{i=1}^n b_{i,0} e^{-2\rho \tau_{i,0}}k(-\tau_{i,0}) \varphi'_{N,\lambda}(\tau_{i,0})=0,
-$$
-when the integral is approximated by the scaled the GL formula (or by the scaled GRL formula). By choosing  $\rho=\mu/2 $ we get $\mathcal{A}_N(\lambda)=\widetilde{\mathcal{A}_N}(\lambda),$ for $N \geq 4,$ while, by using the GRL formula, the same equality holds for $N \geq 3.$ Easy computations gives $\tilde{\lambda}-\lambda \approx -k_0
-\mathcal{A}(\tilde{\lambda})\pm \mathcal{A}_N(\tilde{\lambda})=-k-0(\mathcal{A}(\tilde{\lambda})-\mathcal{A}_N(\tilde{\lambda})).$  
-
-to do?? By taking  $k(s) = k_0 e^{-\mu s}(\sin(a s)+1), a,\mu, k_0 \in \mathbb{R}_+$ in \eqrefl{linear-RE}, the characteristic equation is $\mathcal{A}(\lambda)= 1 - k_0(\frac{a}{a^2+(\lambda + \mu)^2}+\frac{1}{\lambda + \mu},$ which gives $
-(\lambda + \mu)^3-k_0(\lambda + \mu)^2+a(\lambda + \mu)(a-k_0)-a^2 k_0=0.$
+In this case, too, the choice of a suitable $\rho$ for quadrature rules can be linked to $\mu$. 
+Figure \ref{f:LinearDDE_gamma} shows the observed convergence for $\rho = \mu/2$ and $\rho=\mu/4$.
+The reference value for the characteristic root $\lambda$ (and the corresponding eigenfunction) is taken as the value computed with $N=100$.
 
 \bigskip
-For both examples, we study: the spectrum of the matrix $A_N$ defining the right-hand side of the pseudospectral approximation; the convergence of the eigenvalues of $A_N$ to the analytical ones when increasing $N$; 
 
-to do: spiegare meglio come analizzi l'errore dell'autofunzione. the convergence in weighted supremum norm of the interpolating polinomial of the corresponding eigenvector to the exponential function $\psi_\lambda=\alpha e^{\lambda \cdot}\alpha$ for DDEs and to the function $\varphi_\lambda=\alpha(e^{\lambda \cdot}-1)/\lambda$ for REs. In the latter case we also plot the weighted 1-norm of the error. 
-
-We compare the numerical approximation obtained using the meshes built on Laguerre extrema and zeros, for the linear DDE \eqref{linear-DDE} (Figures \ref{f:LinearDDE_ext} and \ref{f:LinearDDE_zeros}) and the linear RE \eqref{linear-RE} (Figures \ref{f:LinearRE_ext} and \ref{f:LinearRE_zeros}). 
-
-The left panels in Figures \ref{f:LinearDDE_ext}--\ref{f:LinearRE_zeros} show that the spurious eigenvalues of $A_N$ typically rise from small perturbations of the spectrum of $D_N$, and they remain to the left of the vertical line $\Re\lambda = -\rho$. Consistently with the theory in \cite{DG12}, the spectrum to this left-half plane is not relevant for the study of stability. 
-The tests show the spectral convergence predicted by Theorem XX until a certain accuracy barrier is reached and that the barrier also depends on the multiplicity of the eigenvalues: the accuracy in the approximation of the real eigenvalue with double multiplicity (Figures \ref{f:LinearDDE_ext}(a) and \ref{f:LinearDDE_zeros}(a)) is halved compared to the accuracy reached in the approximation of the pair of single complex eigenvalues (Figures \ref{f:LinearDDE_ext}(b) and \ref{f:LinearDDE_zeros}(b)), despite a similar convergence rate before the observed barrier. 
-
-The accuracy barrier is hit sooner for Laguerre zeros collocation compared to Laguerre extrema. (???). 
-
-\begin{figure}[p]
+\begin{figure}[t]
 \centering
-\includegraphics[height=.3\textheight]{Linear_DDE_ext_a}\\
-\includegraphics[height=.3\textheight]{Linear_DDE_ext_b}
+\includegraphics[height=.3\textheight]{Linear_RE_k3_eigs}
 \caption{
-Extrema Laguerre collocation nodes and scaled GRL formulas. Left panels: exact characteristic roots $\lambda \in \mathbb{C}_\rho$ computed from \eqref{lambda-DDE} (blu circles), with the numerically computed spectrum of $A_{50}$ (red crosses) and $D_{50}$ (blue bullets); eigenvalues with larger modulus are not shown. Middle panels: log-log plot of the absolute error in the approximation of the characteristic roots when increasing $N$. Right panels: log-log plot of the error in the approximation of the eigenfunction $w\psi_\lambda$ in the infinite norm, when increasing $N$.
-The set of parameter values are $\mu=2$, $\rho=1$ and (a)~$a=1$, $k_0=-2.25$, corresponding to $\lambda=-0.5$ with double multiplicity; (b)~$a=1$, $k_0=-4.5$, corresponding to $\lambda=-0.5\pm 1.5 i$.
-% (c)~$a=3$, $k_0=-12.5$, corresponding to $\lambda=0.5\pm 2.5i$.
+Computed spectra of $\mathcal{A}_{N}$ (red crosses) and $D_N-\rho I_N$ (blue crosses) for the RE \eqref{linear-RE} for zeros--Laguerre (left) and extrema--Laguerre (right) collocation nodes, with $N=50$. 
+Parameters are taken as $\mu=2$, $k_0=3$, corresponding to $\lambda=1$, with $\rho=1$. The exact characteristic root (circles) is computed from \eqref{lambda-RE-exp}; larger eigenvalues to the left are not shown. The lower half-plane is not shown for symmetry reasons.
 }
-\label{f:LinearDDE_ext}
+\label{f:LinearRE_eigs}
 \end{figure}
 
 \begin{figure}[p]
 \centering
-\includegraphics[height=.3\textheight]{Linear_DDE_zeros_a}\\
-\includegraphics[height=.3\textheight]{Linear_DDE_zeros_b}
+\includegraphics[height=.3\textheight]{Linear_RE_k3_conv}\\
 \caption{
-same as Figure~\ref{f:LinearDDE_ext}, using Laguerre collocation nodes and scaled GL formulas.}
-\label{f:LinearDDE_zeros}
-\end{figure}
-
-
-\begin{figure}[p]
-\centering
-\includegraphics[height=.3\textheight]{Linear_DDE_ext_b_mu3rho}\\
-\includegraphics[height=.3\textheight]{Linear_DDE_zeros_b_mu3rho}
-\caption{
-Convergence of eigenvalues using the parameter values in Figure~\ref{f:LinearDDE_ext}(b), but taking $\rho = \mu/3$. Observe the convergence is still exponential but slower than with $\rho = \mu/2$.}
-\label{f:LinearDDE_mu3rho}
-\end{figure}
-
-\begin{figure}[p]
-\centering
-\includegraphics[height=.3\textheight]{Linear_RE_ext_a}\\
-\includegraphics[height=.3\textheight]{Linear_RE_ext_b}
-\caption{
-Laguerre extrema collocation nodes and GRL formulas. Left panels: exact characteristic roots $\lambda$ computed from \eqref{lambda-RE} (circles) and numerically computed spectrum of $D_{50}$ (blue bullets) and $A_{50}$ (red crosses); eigenvalues with larger modulus are not shown.
-Middle panels: log-log plot of the absolute error in the approximation of the characteristic roots when increasing $N$. Right panels: log-log plot of the absolute error in the approximation of the characteristic roots when increasing $N$.
-The set of parameter values are $\mu=2$, $\rho=1$ and togliere????(a)~$k_0=2$, corresponding to $\lambda=0$; ????(b)~$k_0=3$, corresponding to $\lambda=1$.
-% (c)~$k_0=10$, corresponding to $\lambda=8$.
-
+Linear RE \eqref{linear-RE}.
+Log-log plot of the absolute error in the approximation of the characteristic root $\lambda$ (black) and the error in the approximation of the eigenfunction $\psi_\lambda$ in weighted supremum norm (red) and weighted $L^1$-norm (blue). Left panels: zeros--Laguerre collocation nodes and GL quadrature rules; right panels: extrema--Laguerre collocation nodes and GRL quadrature rules.
+First row: $\rho=\mu/2$; second row: $\rho=\mu/4$. The other parameter values are chosen as in Figure \ref{f:LinearRE_eigs}
 }
-\label{f:LinearRE_ext}
+\label{f:LinearRE_k3}
 \end{figure}
 
 \begin{figure}[p]
 \centering
-\includegraphics[height=.3\textheight]{Linear_RE_zeros_a}\\
-\includegraphics[height=.3\textheight]{Linear_RE_zeros_b}
+\includegraphics[width=\textwidth]{Linear_RE_k2_conv}
 \caption{
-same as Figure~\ref{f:LinearRE_ext}, but using the Laguerre collocation mesh and GL formulas.}
-\label{f:LinearRE_zeros}
+Same as Figure \ref{f:LinearRE_k3}, for parameters $\mu=2$, $k_0=2$, corresponding to $\lambda=0$. Note that, for $\rho=\mu/2$, the approximation errors fall to machine precision for low values of $N$, since the eigenfunction is constant. Spectral convergence is observed for a different value of $\rho$. 
+}
+\label{f:LinearRE_k2}
 \end{figure}
 
-to do: RE errore in norma 1 e inf per autofunzioni, aggiungere un altro esempio con k(s) diverso.
+\begin{figure}[t]
+\centering
+\includegraphics[height=.3\textheight]{Linear_RE_sin_conv}
+\caption{
+Same as Figure \ref{f:LinearRE_k3}, for the kernel \eqref{sin-kernel} with parameters $a=0.1$, $\mu=k_0=1$. The reference eigenvalue is computed via PSD with $N=100$. First row: $\rho=\mu/2$; second row: $\rho=\mu/3$.
+}
+\label{f:LinearRE_sin}
+\end{figure}
 
-\subsection{Numerical bifurcation}
+As a second example, we consider the linear RE 
+\begin{equation}\label{linear-RE}
+y(t) = \int_0^{+\infty} k(s) y(t-s) \diff s, \quad t > 0,
+\end{equation}
+where $k \in L^\infty(\mathbb{R}^+)$ with $k(s)e^{\rho s} \to 0$ as $s \to \infty$ for some $\rho > 0$.  
+If $\int_0^\infty k(s) \diff s \neq 0$, $\bar{y}=0$ is the unique equilibrium of \eqref{linear-RE}.
+The characteristic roots in $\mathbb{C}_\rho$ are the solutions of 
+$$ 1 = \widehat{k}(\lambda), \qquad \lambda \in \mathbb{C}_\rho.$$
+The characteristic roots in $\mathbb{C}_\rho$ are eigenvalues of the linear operator $\mathcal{A} := \mathcal{A}_0^{RE} + \mathcal{L}^{RE}$, see \eqref{LARE}, and we study how the spectrum of the PSD $\mathcal{A}_N$ approximates the spectrum of $\mathcal{A}$ in $\mathbb{C}_\rho$.
 
-We here consider three examples of nonlinear equations, and use bifurcation software (MatCont for MATLAB) to perform their bifurcation analysis with respect to parameters. We consider: a DDE; a RE; a system that couples a DDE and RE.
-To avoid numerical issues due to large negative eigenvalues (e.g., [Fornberg and Sloan, A review\dots]), we performed the bifurcation analysis using collocation nodes based on Laguerre extrema. 
+Taking $k(s) = k_0 e^{-\mu s}$, with $\mu, k_0 \in \mathbb{R}_+$, and $\rho < \mu$, the only characteristic root $\lambda \in \mathbb{C}_\rho$ is 
+\begin{equation} \label{lambda-RE-exp}
+\lambda = k_0 - \mu. 
+\end{equation}
+An example of the computed spectrum of $\mathcal{A}_N$ is shown in Figure \ref{f:LinearRE_eigs}, for $\rho=\mu/2$. 
 
+Figures \ref{f:LinearRE_k3}--\ref{f:LinearRE_k2} show the errors in the approximation of the eigenvalue and the corresponding eigenfunction, in weighted infinity and weighted $L^1$ norm. 
+To study the approximation of the eigenfunctions, we measure the error between $\psi_\lambda$ and the derivative of the polynomial interpolating the eigenvector of $\mathcal{A}_N$, in both the weighted infinity norm and the weighted $L^1$-norm. 
+The weighted $L^1$-norm is computed using truncated quadrature formulas with $r = 1/10$. 
+In general, we observe the same convergence trends as observed for the linear DDE. 
+
+It is worth noticing the case of $\lambda = 0$, corresponding to a constant eigenfunction, see Figure \ref{f:LinearRE_k2}. In this case, the error falls to machine precision already for low values of $N$, consistently with the fact that the constant eigenfunction is approximated exactly by an interpolating polynomial of any degree. The case of $\lambda = 0$ is relevant in view of the bifurcation analysis of nonlinear equations. In fact, a transcritical bifurcation happens when a real eigenvalue crosses transversally the imaginary axis when varying one parameter: at the bifurcation point the rightmost eigenvalue is exactly $\lambda = 0$, ensuring a good approximation of the bifurcation point in the context of nonlinear equations. 
+
+We also tested a non-exponential kernel of the form
+\begin{equation} \label{sin-kernel}
+ k(s) = k_0 e^{-\mu s}(\sin(a s)+1),
+\end{equation}
+for $a,\mu, k_0 \in \mathbb{R}_+$. 
+% The characteristic equation is $\mathcal{A}(\lambda)= 1 - k_0(\frac{a}{a^2+(\lambda + \mu)^2}+\frac{1}{\lambda + \mu},$ which gives $(\lambda + \mu)^3-k_0(\lambda + \mu)^2+a(\lambda + \mu)(a-k_0)-a^2 k_0=0.$
+The convergence of the discrete eigenvalues and the corresponding eigenfunction is shown in Figure \ref{f:LinearRE_sin}, where the reference eigenvalue is approximated with $N=100$.
+Again, spectral convergence behaviour is evident for both choices of $\rho$.
+
+
+\subsection{Numerical bifurcation analysis of nonlinear equations}
+
+We here consider three examples of nonlinear delay equations, and use bifurcation software (MatCont for MATLAB \cite{}) to perform their bifurcation analysis with respect to some parameters. We consider: a DDE; a RE; a system that couples a DDE and RE.
+
+In the following tests, we restrict to extrema--Laguerre collocation nodes and the corresponding GRL quadrature rules. 
+The reason for this choice is that zeros--Laguerre introduce eigenvalues with large modulus and negative real part (Figures \ref{f:eigenvalues}--\ref{f:eigenvalues_behaviour}), which may be difficult to compute and may introduce numerical instabilities (e.g., [Fornberg and Sloan, A review\dots]).
+While these issues affect the computations for nonlinear equations, we also note that they seem to be less relevant in the analysis of linear equations, where the errors always seem to hit the accuracy barrier for lower values of $N$ using zeros--Laguerre compared to using extrema--Laguerre (Figures \ref{f:LinearDDE_im}--\ref{f:LinearDDE_re} and Figures \ref{f:LinearRE_k3}--\ref{f:LinearRE_sin}).
+
+\bigskip
 Consider the nonlinear DDE
 \begin{equation} \label{beretta}
 \frac{\diff y}{\diff t}(t) = -\delta_A y(t) + b \int_0^{+\infty} f_{n/\tau}^{(n)} (s) e^{-\delta_J s - a y(t-s)} y(t-s) \diff s,
 \end{equation}
-where $\tau,n,a,b,\delta_A,\delta_J$ are positive parameters and, given $\alpha > 0$ and $n > 0$, $f_{\alpha}^{(n)} (s)$ is the Gamma distribution
-$$ f_{\alpha}^{(n)} (s) = \frac{\alpha^n s^{n-1} e^{-\alpha s}}{\Gamma(n)}, \quad s\geq 0.$$
+where $\tau,n,a,b,\delta_A,\delta_J$ are positive parameters and, given $\alpha > 0$ and $n > 0$, $f_{\alpha}^{(n)} (s)$ is the Gamma distribution \eqref{Gamma-density}.
+% $$ f_{\alpha}^{(n)} (s) = \frac{\alpha^n s^{n-1} e^{-\alpha s}}{\Gamma(n)}, \quad s\geq 0.$$
 Equation~\eqref{beretta} is studied in [Beretta and Breda 2016] as an equation describing the evolution of a single-species adult population where the maturation age of an individual is continuously distributed over time according to the Gamma distribution.
-A bifurcation analysis has been proposed in [Gyllenberg et al, AMC 2018], where an equivalent ODE system is obtained using a suitable transformation of variables when $n \in \mathbb{N}$, which allows to compare the bifurcation diagram obtained via pseudospectral discretization with the one obtained by studying the equivalent ODE directly. 
-If $n$ is large enough, the nontrivial equilibrium undergoes two Hopf bifurcations when varying the parameter $\tau$ representing the expected maturation age.
+A bifurcation analysis has been proposed in \cite{GSV18}, where an equivalent ODE system is obtained using a suitable transformation of variables when $n \in \mathbb{N}$, which allows to compare the bifurcation diagram obtained via PSD with the one obtained by studying the equivalent ODE directly. 
+If $n$ is large enough, the nontrivial equilibrium undergoes two Hopf bifurcations when varying the parameter $\tau$ that represents the expected maturation age of an individual.
 For smaller values of $n$ no stability switch occurs, the nontrivial equilibrium being locally asymptotically stable whenever it exists positive.
 The Hopf bifurcation curve in the plane $(\tau,n)$, which separates the parts of the plane where the nontrivial positive equilibrium is either stable or unstable, is shown in Figure \ref{f:beretta_breda_regions}.
 \textbf{Note that, to obtain reliable results in the continuation framework, it was necessary to use the positive part of the state vector when computing the right-hand side of the equation. }
@@ -1619,7 +1690,13 @@ What $\rho$ to take??
 
 \section{Conclusions}\label{S_Conclusions}
 
-\bi
+
+Note that, using a quadrature rule, a DDE \eqref{linear-DDE} with infinite delay is approximated with a DDE with finite delays:
+$$ y'(t) = ay(t) + \sum_{j=0}^N b_j k(-\theta_j) y(t+\theta_j)$$
+which can either discretized using a finite delay, or can be treated with dde-biftool. However, the discretization of the infinite delay directly allows to exploit the specific form of the problem (e.g. exponentially weighted) and theoretical results (spectrum in $\mathbb{C}_\rho$), finding optimal nodes for the specific problem, which take into account the fact that functions are exponentially decaying at $-\infty$.
+
+
+\begin{itemize}
 \item For the spectral approach $\mathcal{R}_Nx$ are the coefficients of the series expansion of $x$ w.r.t. an orthogonal system and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}.
 
 \item to do: In the future we will investigate the PSD approached based on truncated interpolation, which also enter in the framework of subsection \ref{AA_APSD}. Recent results show that  GL quadrature formulas have the same accuracy of the classical GL quadrature formula using only a fraction of their nodes, which in our case reads as follows 
@@ -1630,7 +1707,7 @@ $$
 with $\tau_{k,0}:=\max \{\tau_{i,0} \leq -4nr/2\rho \}$ and $0<r<1$ arbitrarily chosen \cite{JMN21,MM00,MM08,MM082}. 
 
 Queste tecniche sono molto interessanti  perch\`e comportano un risparmio computazionale to do: estensione ad altri modelli PDE.
-\ei
+\end{itemize}
 
 \bigskip
 In a spectral approach $\mathcal{R}_Nx$ is defined as the vector of coefficients of the series expansion of $x$ w.r.t. an orthogonal system and $\mathcal{I}_N$ is the orthogonal projection \cite{Boyd}. Theorem \ref{Th0} remains true, but...
@@ -1638,7 +1715,8 @@ In a spectral approach $\mathcal{R}_Nx$ is defined as the vector of coefficients
 To do Francesca: maybe cite Lessard
 
 
-Acknowledgments. The authors are grateful to Professor Giuseppe Mastroianni, University of Basilicata, and Professor Incoronata Notarangelo, University of Torino, for their helpful suggestions and remarks.
+\section*{Acknowledgments}
+The authors are grateful to Professor Giuseppe Mastroianni, University of Basilicata, and Professor Incoronata Notarangelo, University of Torino, for their helpful suggestions and remarks.
 gncs
 
 
@@ -1646,7 +1724,7 @@ gncs
 
 \bibitem{Boyd} Boyd, J. P.: Chebyshev and Fourier spectral methods. Courier Corporation. (2001)
  
- \bibitem{BMV08} Breda, D., Iannelli, M., Maset, S., and Vermiglio, R.: Stability analysis of the Gurtin–MacCamy model. SIAM Journal on Numerical Analysis, 46(2), 980-995  (2008)
+ \bibitem{BMV08} Breda, D., Iannelli, M., Maset, S., and Vermiglio, R.: Stability analysis of the Gurtin--MacCamy model. SIAM Journal on Numerical Analysis, 46(2), 980-995  (2008)
  
 \bibitem{BMV14} Breda, D., Maset, S., and Vermiglio, R.: Stability of linear delay differential equations: A numerical approach with MATLAB. Springer (2014)
 
@@ -1672,9 +1750,9 @@ J. Differential Equations, 252 (2) 819--851 (2012) DOI 10.1016/j.jde.2011.09.038
   
 \bibitem{sunstar} Diekmann, O., Getto, P., and Gyllenberg, M.: Stability and bifurcation analysis of Volterra functional equations in the light of suns and stars. SIAM journal on Mathematical Analysis, 39(4), 1023-1069 (2008)
 
-\bibitem{twin} O. Diekmann, S. Verduyn Lunel, Twin semigroups and delay equations, J. Diff. Equ. 286 (2021) 332–410. doi:https://doi.org/10.1016/j.jde.2021.02.052.
+\bibitem{twin} O. Diekmann, S. Verduyn Lunel, Twin semigroups and delay equations, J. Diff. Equ. 286 (2021) 332--410. doi:https://doi.org/10.1016/j.jde.2021.02.052.
 
-\bibitem{DSV20}  O. Diekmann, F. Scarabel, R. Vermiglio, Pseudospectral discretization of delay differential equations in sun-star formulation: results and conjectures, Discret. Contin. Dyn. Syst. Ser. S 13 (9) (2020) 2575–2602. doi:https://doi.org/10.3934/dcdss.2020196.
+\bibitem{DSV20}  O. Diekmann, F. Scarabel, R. Vermiglio, Pseudospectral discretization of delay differential equations in sun-star formulation: results and conjectures, Discret. Contin. Dyn. Syst. Ser. S 13 (9) (2020) 2575--2602. doi:https://doi.org/10.3934/dcdss.2020196.
 
 \bibitem{Ilaria} Fontana I., Numerical bifurcation of equations with infinite delay via pseudospectral collocation, MSc in Mathematics, 2017/18, advisor Rossana Vermiglio, co-advisor Mats Gyllenberg (U. Helsinki).
 \bibitem{GLZ06} Guo, Ben-yu, Li-Lian, W., and Zhong-Qing, W.. Generalized Laguerre interpolation and pseudospectral method for unbounded domains. SIAM journal on numerical analysis, 43(6), 2567-2589 (2006)
@@ -1683,7 +1761,7 @@ J. Differential Equations, 252 (2) 819--851 (2012) DOI 10.1016/j.jde.2011.09.038
 \bibitem{matcont} Dhooge, A., Govaerts, W., and  Kuznetsov, Y. A.  MATCONT: a MATLAB package for numerical bifurcation analysis of ODEs. ACM Transactions on Mathematical Software (TOMS), 29(2), 141-164 (2003).
 \bibitem{GSV18} Gyllenberg, M., Scarabel, F., and Vermiglio, R. : Equations with infinite delay: numerical bifurcation analysis via pseudospectral discretization. Applied Mathematics and Computation, 333, 490-505 (2018)
  .
-\bibitem{Auto} Doedel, et al. : AUTO-07P: Continuation and bifurcation software for ordinary differential equations (2007)
+\bibitem{Auto} Doedel, et al. AUTO-07P: Continuation and bifurcation software for ordinary differential equations (2007)
 
 \bibitem{doe07}
 E.~Doedel, Lecture notes on numerical analysis of nonlinear equations, in:
@@ -1693,7 +1771,8 @@ E.~Doedel, Lecture notes on numerical analysis of nonlinear equations, in:
   
 \bibitem{F08} Funaro, D.  Polynomial approximation of differential equations (Vol. 8). Springer Science \& Business Media (2008).
 
-\bibitem{G00}  Gautschi, W. Gauss–Radau formulae for Jacobi and Laguerre weight functions. Mathematics and Computers in Simulation 54, 403--412 (2000)
+\bibitem{G00}  Gautschi, W. Gauss--Radau formulae for Jacobi and Laguerre weight functions. Mathematics and Computers in Simulation 54, 403--412 (2000)
+
 \bibitem{GSV18} Gyllenberg, M., Scarabel, F., and Vermiglio, R.:  Equations with infinite delay: Numerical bifurcation analysis via pseudospectral discretization. Applied Mathematics and Computation, 333, 490-505 (2018)
 
 \bibitem{JSW87} Jordan, G. S., Staffans, O. J., and Wheeler, R. L.  Subspaces of stable and unstable solutions of a functional differential equation in a fading memory space: The critical case. SIAM journal on mathematical analysis, 18(5), 1323-1340 (1987).
@@ -1725,10 +1804,30 @@ L.~N. Trefethen, Spectral methods in {MATLAB}, Software - Environment - Tools
 
 \bibitem{XG02} Xu, Cheng-long; Guo, Ben-yu. Laguerre pseudospectral method for nonlinear partial differential equations. Journal of Computational Mathematics, 2002, 413-428.
 
-\bibitem{WGW09} Wang, Z. Q., Guo, B. Y., and Wu, Y. N.  Pseudospectral method using generalized Laguerre functions for singular problems on unbounded domains. Discrete & Continuous Dynamical Systems-B, 11(4), 1019 (2009)
+\bibitem{WGW09} Wang, Z. Q., Guo, B. Y., and Wu, Y. N.  Pseudospectral method using generalized Laguerre functions for singular problems on unbounded domains. Discrete and Continuous Dynamical Systems-B, 11(4), 1019 (2009)
 
 \bibitem{Weideman2000} Weideman, J. A., and Reddy, S. C.. A MATLAB differentiation matrix suite. ACM Transactions on Mathematical Software (TOMS), 26(4), 465-519 (2000)
 
 \end{thebibliography}
+
+
+
+\appendix
+\section{Cut parts}
+\begin{lemma}\label{L1}
+Let $\psi \in \mathcal{C}_{\rho,\epsilon}$ and $\nu \in (0,1).$ Then there exists $\widetilde{N}:=\widetilde{N}(\nu,\epsilon) \in \mathbb{N},$ such that
+$$
+\frac{ \| s w \psi  \|_\infty}{\sqrt{N}} \leq  \frac{\| w \psi \|_\infty} {\sqrt{N}^{\nu}}, \ \text{ for all } N \geq \widetilde{N}.
+$$
+\end{lemma}
+\begin{proof}
+Given $\nu \in (0,1),$ there exists $\widetilde{N}:=\widetilde{N}(\nu,\epsilon)$ such that $N^{1-\nu}> |\theta_\epsilon|, $ for all $N \geq \widetilde{N}.$
+Then from Lemma \ref{L0} we get 
+$$
+\frac{ \| s w \psi  \|_\infty}{\sqrt{N}} \leq    \| w \psi \|_\infty (\frac{N^{1-\nu}}{N})^{1/2} \leq \frac{\| w \psi \|_\infty} {(\sqrt{N})^{\nu}}, 
+$$
+for all $N \geq \widetilde{N},$ and the proof is complete.
+\end{proof}
+
 \end{document}
 
