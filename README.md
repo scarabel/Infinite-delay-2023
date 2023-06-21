@@ -1,6 +1,6 @@
 # Infinite-delay-2023
  
-This repository contains codes to reproduce the tests in the manuscript
+This repository contains codes to reproduce the tests in the manuscript:
 Scarabel and Vermiglio (2023), "Equations with infinite delay: pseudospectral discretization for numerical stability and bifurcation in an abstract framework", submitted. 
 Licensing information is available in the file LICENSE. 
 
