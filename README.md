@@ -17,3 +17,8 @@ The codes for the linear tests are obtained in the code "linear_tests.m", which 
 * "construct_AN_RE.m": code to construct the matrix AN for REs using quadrature
 * "PSD_laguerre_standard_nodes.m": code to construct the quadrature nodes and weights and the differentiation matrix for given set of Laguerre nodes.
 
+The codes for the nonlinear examples are collected in:
+* "MC_beretta_breda_ext.m", which contains the MatCont continuation instructions to perform the bifurcation analysis of the system defined in "PS_beretta_breda.m"
+* "MC_blowflies_ext.m", which contains the MatCont continuation instructions to perform the bifurcation analysis of the system defined in "PS_blowflies.m"
+
+The continuation requires the use of the package MatCont. 
