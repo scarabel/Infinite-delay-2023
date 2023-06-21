@@ -19,6 +19,6 @@ The codes for the linear tests are obtained in the code "linear_tests.m", which 
 
 The codes for the nonlinear examples are collected in:
 * "MC_beretta_breda_ext.m", which contains the MatCont continuation instructions to perform the bifurcation analysis of the system defined in "PS_beretta_breda.m"
-* "MC_blowflies_ext.m", which contains the MatCont continuation instructions to perform the bifurcation analysis of the system defined in "PS_blowflies.m"
+* "MC_blowflies_inf_ext.m", which contains the MatCont continuation instructions to perform the bifurcation analysis of the system defined in "PS_blowflies_inf_ext.m"
 
 The continuation requires the use of the package MatCont. 
